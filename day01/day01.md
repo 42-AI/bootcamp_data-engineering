@@ -6,13 +6,10 @@ Today, you will learn how to use a NoSQL database: Elasticsearch.
 
 ## Notions of the day
 
-
+Create an Elasticsearch database, run the cluster, ingest document, search & aggregate, create visual with Kibana
 
 ## General rules
 
-* The version of Python to use is 3.7, you can check the version of Python with the following command: `python -V`
-* The norm: during this bootcamp you will follow the Pep8 standards <href src="https://www.python.org/dev/peps/pep-0008/"><u><font color=blue>https://www.python.org/dev/peps/pep-0008/</font></u></href>
-* The function eval is never allowed.
 * The exercises are ordered from the easiest to the hardest.
 * Your exercises are going to be evaluated by someone else, so make sure that your variable names and function names are appropriate and civil. 
 * Your manual is the internet.
@@ -31,20 +28,19 @@ If you wanna know how the magic works: <href src="https://www.elastic.co/elastic
 
 ## Helper 
 
-Make sure that you are using the right version of Python.
+* Your best friend for the day: <href src="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html"><u><font color=blue>Elasticsearch documentation</font></u></href>
+* We recommand to use the /goinfre directory for this day as you will need ~3Go for the Elasticsearch cluster. But you are free to do as you whish. Note that using /sgonfre won't work.
+* Keep in mind that the /goinfre is a local & temporary directory. So if you change computer you will lose your work, if you log out you might lose your work.
 
-```
-$> which python
-/goinfre/miniconda/bin/python
-$> python -V
-Python 3.7.*
-$> which pip
-/goinfre/miniconda/bin/pip
-```
+### Exercice 00 - The setup.
+### Exercice 01 - CRUDité.
+### Exercice 02 - Your first Index Your first Mapping.
+### Exercice 03 - Text Analyzer
+### Exercice 04 - Eat them all! (ingest with logstash)
+### Exercice 05 - Search
+### Exercice 06 - Aggregation
+### Exercice 07 - Kibana & Monitoring
+### Exercice 08 - Security
+### Exercice 09 - Troubleshooting
+### Exercice 10 - Expand the cluster!
 
-### Exercice 00 - The book.
-### Exercice 01 - Family tree.
-### Exercice 02 - The vector.
-### Exercice 03 - Generator !
-### Exercice 04 - Working with list.
-### Exercice 05 - Bank account.
