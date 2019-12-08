@@ -22,7 +22,7 @@ The purpose of the day is first to create, administrate and normalize a PostgreS
 
 \<need to be added>
 
-## Helper 
+## Helper
 
 Ensure that you have the right Python version and psycopg2 installed.
 
@@ -35,8 +35,7 @@ Python 3.7.*
 /goinfre/miniconda/bin/pip
 ```
 
-### Exercice 00 - Populate, Administrate and Normalize. 
-### Exercice 01 - Analyze and Visualize
+### Exercice 00 - Populate, Adminitrate, Normalize.
+### Exercice 01 - Analyze and Visualize.
 ### Exercice 02 - Advance querying.
-### Exercice 03 - Caching, backups and replication.
-
+### Exercice 03 - Caching, Backups, Replication.
