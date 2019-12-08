@@ -11,9 +11,9 @@ nb: if you notice any problem with brew, you can reinstall it  with the followin
 rm -rf $HOME/.brew && git clone --depth=1 https://github.com/Homebrew/brew $HOME/.brew && echo 'export PATH=$HOME/.brew/bin:$PATH' >> $HOME/.zshrc && source $HOME/.zshrc && brew update
 ```
 
-## Manual Install
+## Conda manual install
 
-If you want a fully automated install go to [Automated install function](#automated) part. The automated part will allow you to reinstall everything more easily if you change of Desktop. Here, we are going to see a step by step install.
+If you want a fully automated install go to [Automated install](#automated) part. The automated part will allow you to reinstall everything more easily if you change of Desktop. Here, we are going to see a step by step install.
 
 1. Download conda install with the following command (MacOS version).
 ```zsh
@@ -45,7 +45,7 @@ Your python should now be the one corresponding to the miniconda environment !
 
 <div id='automated'/></div>
 
-## Automated install function 
+## Conda automated install 
 
 A way to install the entire environment is to define a bash function in your `~/.zshrc`.
 
