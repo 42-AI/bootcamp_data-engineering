@@ -1,0 +1,108 @@
+# Initial setup
+
+## PostgreSQL intall
+
+The first thing we need to do is install PostgreSQL.
+```zsh
+brew install postgresql
+```
+nb: if you notice any problem with brew, you can reinstall it  with the following command.
+```zsh
+rm -rf $HOME/.brew && git clone --depth=1 https://github.com/Homebrew/brew $HOME/.brew && echo 'export PATH=$HOME/.brew/bin:$PATH' >> $HOME/.zshrc && source $HOME/.zshrc && brew update
+```
+
+## Manual Install
+
+If you want a fully automated install go to [Automated install function](#automated) part. The automated part will allow you to reinstall everything more easily if you change of Desktop. Here, we are going to see a step by step install.
+
+1. Download conda install with the following command (MacOS version).
+```zsh
+curl -LO "https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh"
+```
+2. Install conda with the script (we advise you to install it with this path `/goinfre/miniconda3`).
+```zsh
+sh Miniconda3-latest-MacOSX-x86_64.sh -b -p <path>
+```
+The goinfre will change depending on your desktop location in cluster, so you will need to reinstall everything.
+
+3. Install needed requirements.
+```zsh
+conda install -y "jupyter" "numpy" "pandas" "psycopg2"
+```
+4. Add export to your `.zshrc` file.
+```zsh
+export PATH=$MINICONDA_PATH:$PATH
+```
+5. Source your `.zshrc` file.
+```zsh
+source ~/.zshrc
+```
+6. Check your python environment.
+```zsh
+which python
+```
+Your python should now be the one corresponding to the miniconda environment ! 
+
+<div id='automated'/></div>
+
+## Automated install function 
+
+A way to install the entire environment is to define a bash function in your `~/.zshrc`.
+
+1. Copy paste the following code into your `~/.zshrc`.
+
+```zsh
+function set_conda {
+    HOME=$(echo ~)
+    INSTALL_PATH="/goinfre"
+    MINICONDA_PATH=$INSTALL_PATH"/miniconda3/bin"
+    PYTHON_PATH=$(which python)
+    SCRIPT="Miniconda3-latest-MacOSX-x86_64.sh"
+    REQUIREMENTS="jupyter numpy pandas psycopg2"
+    DL_LINK="https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh"
+
+    if echo $PYTHON_PATH | grep -q $INSTALL_PATH; then
+	    echo "good python version :)"
+    else
+	cd
+	if [ ! -f $SCRIPT ]; then
+		curl -LO $DL_LINK
+    	fi
+    	if [ ! -d $MINICONDA_PATH ]; then
+	    	sh $SCRIPT -b -p $INSTALL_PATH"/miniconda3"
+	fi
+	conda install -y $(echo $REQUIREMENTS)
+	clear
+	echo "Which python:"
+	which python
+	if grep -q "^export PATH=$MINICONDA_PATH" ~/.zshrc
+	then
+		echo "export already in .zshrc";
+	else
+		echo "adding export to .zshrc ...";
+		echo "export PATH=$MINICONDA_PATH:$PATH" >> ~/.zshrc
+	fi
+	source ~/.zshrc
+    fi
+}
+```
+
+By default, conda will be installed in the goinfre (look at the `INSTALL_PATH` variable). Feel free to change that path if you want.
+
+The function can be used whenever we want and will install miniconda and all needed librairies for the day. It will also add a line to export miniconda environment.
+
+2. Source your `.zshrc` with the following command.
+```zsh
+source ~/.zshrc
+```
+3. Use the function `set_conda`. 
+```zsh
+set_conda
+```
+When the installation is done rerun the `set_conda` function.
+
+4. Check python path
+```zsh
+which python
+```
+Your python should now be the one corresponding to the miniconda environment ! 
