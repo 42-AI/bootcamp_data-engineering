@@ -105,3 +105,6 @@ venv.bak/
 
 # MACOS stuff
 *.DS_STORE
+
+# TMP files
+*.swp
