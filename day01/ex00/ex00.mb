@@ -26,10 +26,10 @@ Choose the version 7.5 and download the tar.gz file
 | /modules | Contains various Elasticsearch modules |
 | /plugins | Plugin files location. Each plugin will be contained in a subdirectory |
 
-* Start your cluster by running the ./elasticsearch in the /bin folder
+* Start your cluster by running the ./elasticsearch in the /bin folder and wait few 
 
 Ok so now your cluster should be running and listening on the http://localhost:9200.
-Elasticsearch works with a REST API, which means that to query your cluster you just have to send request to the good end points. (We will come to that)
+Elasticsearch works with a REST API, which means that your to query your cluster you just have to send an HTTP request to the good end points. (We will come to that)
 
 For now run
 ```bash
@@ -56,5 +56,11 @@ You should see something like this:
   "tagline" : "You Know, for Search"
 }
 ```
+If not, feel free to look at the doc :) (or ask your neighbours, or goolge...) <href src="https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html"><u><font color="blue">See documentation</font></u></href>
 
-For help, please refer to the doc (or to your neighbours, or goolge) <href src="https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html"><u><font color="blue">See documentation</font></u></href>
+Now stop the cluster.
+Change the configuration so that your cluster name is : "my-cluster" and the node name is : "node1"
+Restart your cluster and check the new names with 
+```bash
+curl http://localhost:9200
+```

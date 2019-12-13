@@ -3,10 +3,11 @@
 # Day01 - NoSQL with Elasticsearch
 
 Today, you will learn how to use a NoSQL database: Elasticsearch.
+Wait.. Elasticsearch is a database ? Well not exactly it is more than that. It is defined as a search and analytics engine. But let's keep it simple for now, consider it as a database, we will see the rest later.
 
 ## Notions of the day
 
-Create an Elasticsearch database, run the cluster, ingest document, search & aggregate, create visual with Kibana
+Create an Elasticsearch cluster, create index and mappings, ingest document, search & aggregate, create visual with Kibana
 
 ## General rules
 

@@ -1,13 +1,54 @@
-# Exercise 01 - The book.
+# Exercise 01 - The CRUDité.
 
 |                         |                    |
 | -----------------------:| ------------------ |
-|   Turnin directory :    |  ex00              |
+|   Turnin directory :    |  ex01              |
 |   Files to turn in :    |   |
 |   Forbidden function :  |  None              |
 |   Remarks :             |  n/a               |
 
-Let's start simple:
+Now we are going to see how to perform basic CRUD operation on Elasticsearch.
+
+## Create
+
+I'm gonna make it easy for you: Here is a curl request that create a document with id=1 into an index named "twitter" and containing 3 fields:
+
+```bash
+curl -X PUT "http://localhost:9200/twitter/_doc/1?pretty" -H 'Content-Type: application/json' -d'
+{
+    "user" : "kimchy",
+    "post_date" : "2009-11-15T14:12:12",
+    "message" : "trying out Elasticsearch"
+}
+'
+```
+So, what do we have here ? 
+HTTP PUT method (remember, Elasticsearch use a REST API) followed by: ip_of_the_cluster:9200/index_name/_doc/id_of_the_document; then a header specifing the content-type as a json, and finally the json. 
+Every documents in Elasticsearch is a json, every request to Elasticsearch is sent as a json within a an HTTP request.
+
+Try it out, you should get an answer from the server confirming the creation of the document.
+
+Let's see another way to create a document: Modify the above request to create a document in the twitter index but this time without specifiyng the id of the document. The document shall have the following field:
+```bash
+{
+    "user" : "johnDoe",
+    "post_date" : "2019-19-19T15:15:15",
+    "message" : "still trying out Elasticsearch"
+}
+```
+
+Save your curl request to a file named ...
+
+Ok nice, you have just created your two first documents and your first index !!
+Using curl is however not very convinient right.. How awesome would it be to have a nice dev tool to write out those request.. Kibana !!
+Kibana is the visualition tool of the Elastic Stack. What's the Elastic Stack ? -> <href src="https://www.elastic.co/what-is/elk-stack"><u><font color="blue">https://www.elastic.co/what-is/elk-stack</font></u></href>
+
+Let's install Kibana.
+As you did for Elasticsearch, on the same link, download Kibana v7.5.
+Unzip the file with tar and run it.
+
+## Read
+
 
 * Download and install Elasticsearch. 
 Go to <href src="https://www.elastic.co/downloads/past-releases"><u><font color="blue">https://www.elastic.co/downloads/past-releases</font></u></href>
