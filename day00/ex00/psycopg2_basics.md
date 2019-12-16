@@ -86,12 +86,73 @@ curr.execute("""DELETE FROM members
 ```
 
 ## Showing table content
+
 We must use the `fetchall` function to gather all the result in a list of tuples.
 ```python
-...
-curr.execute("""SELECT * FROM members""")
-response = curr.fetchall()
-for row in response:
-    print(row)
-conn.close()
+def display_table():
+    conn = psycopg2.connect(
+        database="appstore_games",
+        host="localhost",
+        user="user",
+        password="xxxx"
+    )
+    curr = conn.cursor()
+    curr.execute("""SELECT * FROM test""")
+    response = curr.fetchall()
+    for row in response:
+        print(row)
+    conn.close()
+```
+
+## Create table
+
+```python
+def create_table():
+    conn = psycopg2.connect(
+        database="appstore_games",
+        host="localhost",
+        user="user",
+        password="xxxx"
+    )
+    curr = conn.cursor()
+    curr.execute("""CREATE TABLE test(
+             FirstName varchar PRIMARY KEY,
+             LastName varchar,
+             Age int
+             );""")           
+    conn.commit()
+    conn.close()
+```
+
+## Drop table
+
+```python
+def delete_table():
+    conn = psycopg2.connect(
+        database="appstore_games",
+        host="localhost",
+        user="user",
+        password="xxxx"
+    )
+    curr = conn.cursor()
+    curr.execute('DROP TABLE test;')          
+    conn.commit()
+    conn.close()
+```
+
+## Inserting data into table
+
+```python
+def delete_table():
+    conn = psycopg2.connect(
+        database="appstore_games",
+        host="localhost",
+        user="user",
+        password="xxxx"
+    )
+    curr = conn.cursor()
+    curr.execute("""INSERT INTO test
+            (FirstName, LastName, Age) VALUES (%s, %s, %s)""", ('Michelle', 'Dupont', '33'))      
+    conn.commit()
+    conn.close()
 ```
