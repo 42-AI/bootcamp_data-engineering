@@ -35,7 +35,24 @@ Python 3.7.*
 /goinfre/miniconda/bin/pip
 ```
 
-### Exercice 00 - Populate, Adminitrate, Normalize.
-### Exercice 01 - Analyze and Visualize.
-### Exercice 02 - Advance querying.
-### Exercice 03 - Caching, Backups, Replication.
+### Exercice 00 - Setup
+### Exercice 01 - Clean
+### Exercice 02 - Normalize
+### Exercice 03 - Populate
+### Exercice 04 - Top_100
+### Exercice 05 - Name_price
+### Exercice 06 - Name_lang_5-10
+### Exercice 07 - Uniq_developers
+### Exercice 08 - Battle_royale
+### Exercice 09 - Best_sellers
+### Exercice 10 - Ratings
+### Exercice 11 - Mean_price
+### Exercice 12 - 5_best_worldwide
+### Exercice 13 - K-developer
+### Exercice 14 - Table-create
+### Exercice 15 - Sample
+### Exercice 16 - New-table
+### Exercice 17 - ???
+### Exercice 18 - Administrate
+### Exercice 19 - Caching
+### Exercice 20 - Backup
