@@ -38,7 +38,7 @@ Let's see another way to create a document: Modify the above request to create a
 ```
 Hint: try POST instead of PUT
 
-Save your curl request to a file named ...
+Save your curl request to a file named 'create-doc.sh'. The file shall be executable for the correction and it shall create the above document.
 
 Ok nice, you have just created your two first documents and your first index !!
 However using curl is not very convinient right.. Wouldn't it be awesome to have a nice dev tool to write out those request.. Kibana !!
@@ -72,6 +72,8 @@ and:
 
 Got it? Great. From now on, all the query shall be done in Kibana.
 
+Save the request into 'create-doc-2.txt'. The command will be copy/paste into Kibana for the correction.
+
 ## Read
 
 Now that we got the (very) basis of how to query Elasticsearch, I'm gonna let you search the answer on our own.
@@ -81,5 +83,7 @@ Now that we got the (very) basis of how to query Elasticsearch, I'm gonna let yo
 - Write a search query that return all the tweet containing 'elasticsearch' in their message.
 A little more complicated:
 - Write a search query that return all the tweet from 'mimich' (and only this user!). Hint: look for the keyword field ;)
+
+Save all those search requests into 'basic-search.txt'.
 
 For help, please refer to the doc (or to your neighbours, or goolge) <href src="https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html"><u><font color="blue">See documentation</font></u></href>

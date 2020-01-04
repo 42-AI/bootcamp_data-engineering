@@ -1,0 +1,13 @@
+POST twitter/_doc/
+{
+    "user" : "mimich",
+    "post_date" : "2019-19-19T15:15:15",
+    "message" : "Trying out Kibana"
+}
+
+POST twitter/_doc/
+{
+    "user" : "jean mimich",
+    "post_date" : "2019-19-19T15:15:15",
+    "message" : "Trying something else"
+}
