@@ -1,0 +1,63 @@
+1 - Run the ./create-doc.sh file
+You should a response from the cluster as follow: (id might be different)
+{
+  "_index" : "twitter",
+  "_type" : "_doc",
+  "_id" : "V_CNj28BAAu_Qa2cERlN",
+  "_version" : 1,
+  "result" : "created",
+  "_shards" : {
+    "total" : 2,
+    "successful" : 1,
+    "failed" : 0
+  },
+  "_seq_no" : 0,
+  "_primary_term" : 1
+}
+{
+  "_index" : "twitter",
+  "_type" : "_doc",
+  "_id" : "WPCNj28BAAu_Qa2cEhnU",
+  "_version" : 1,
+  "result" : "created",
+  "_shards" : {
+    "total" : 2,
+    "successful" : 1,
+    "failed" : 0
+  },
+  "_seq_no" : 1,
+  "_primary_term" : 1
+}
+
+2 - Ask the student to start Kibana 
+3 - Copy the content of create-doc-2.txt and paste it into Kibana dev tool
+4 - Run both command in Kibana and check that the document is well created (similar response as question 1-)
+5 - Copy the content of 'basic-search.txt' into Kibana dev tool
+6 - Run all commands and for each check that the number of hits (see subject)
+7 - Copy the content of update.txt and run it in Kibana. You should have a similar answer to this:
+{
+  "_index" : "twitter",
+  "_type" : "_doc",
+  "_id" : "1",
+  "_version" : 2,
+  "result" : "updated",
+  "_shards" : {
+    "total" : 2,
+    "successful" : 1,
+    "failed" : 0
+  },
+  "_seq_no" : 4,
+  "_primary_term" : 1
+}
+Check that "_version" is 2
+Run `GET twitter/_doc/1` and check the content of the message is as asked in the subject
+
+8 - Copy the content of 'delete.txt'.  
+Run the 1st command, then run `GET twitter/_doc/1`. You should get:
+{
+  "_index" : "twitter",
+  "_type" : "_doc",
+  "_id" : "1",
+  "found" : false
+}
+Then run the second command and check the index 'twitter' no longer exists in the cluster: `GET _cat/indices?v`
