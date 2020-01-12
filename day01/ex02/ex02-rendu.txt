@@ -1,0 +1,25 @@
+GET twitter/_mapping
+
+PUT twitter_better_mapping/
+{
+  "mappings" : {
+    "properties" : {
+      "post_date" : {
+        "type" : "date",
+        "format": ["dd MM yyyy"]
+      }
+    }
+  }
+}
+
+POST _reindex
+{
+  "source": 
+  {
+    "index": "twitter"
+  },
+  "dest": 
+  {
+    "index": "twitter_better_mapping"
+  }
+}
