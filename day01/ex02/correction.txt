@@ -1,0 +1,45 @@
+1- Run the request in ex02-rendu.txt file
+2- Run the following request in Kibana:
+GET twitter_better_mapping/_search
+{
+  "query": {
+    "range": {
+      "post_date": {
+        "gte": "01 01 2016"
+      }
+    }
+  }
+}
+
+You should get the following result (2 hits, _id might change):
+"hits" : {
+    "total" : {
+      "value" : 2,
+      "relation" : "eq"
+    },
+    "max_score" : 1.0,
+    "hits" : [
+      {
+        "_index" : "twitter_better_mapping",
+        "_type" : "_doc",
+        "_id" : "......",
+        "_score" : 1.0,
+        "_source" : {
+          "user" : "popol",
+          "post_date" : "20 01 2019",
+          "message" : "still trying out Elasticsearch"
+        }
+      },
+      {
+        "_index" : "twitter_better_mapping",
+        "_type" : "_doc",
+        "_id" : "....",
+        "_score" : 1.0,
+        "_source" : {
+          "user" : "jean mimich",
+          "post_date" : "01 01 2016",
+          "message" : "Trying something else"
+        }
+      }
+    ]
+  }
