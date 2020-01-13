@@ -30,11 +30,10 @@ You should a response from the cluster as follow: (id might be different)
 }
 
 2 - Ask the student to start Kibana 
-3 - Copy the content of create-doc-2.txt and paste it into Kibana dev tool
-4 - Run both command in Kibana and check that the document is well created (similar response as question 1-)
-5 - Copy the content of 'basic-search.txt' into Kibana dev tool
-6 - Run all commands and for each check that the number of hits (see subject)
-7 - Copy the content of update.txt and run it in Kibana. You should have a similar answer to this:
+3 - Copy the content of ex01-rendu.txt and paste it into Kibana dev tool
+4 - Run the two command for the 'CREATE' part in Kibana and check that the document is well created (similar response as question 1)
+6 - Run the commands for the 'READ' part and for each check that you get the same number of hits as ask in the subject
+7 - Run the command for the 'UPDATE' part. You should have a similar answer to this:
 {
   "_index" : "twitter",
   "_type" : "_doc",
@@ -52,12 +51,17 @@ You should a response from the cluster as follow: (id might be different)
 Check that "_version" is 2
 Run `GET twitter/_doc/1` and check the content of the message is as asked in the subject
 
-8 - Copy the content of 'delete.txt'.  
-Run the 1st command, then run `GET twitter/_doc/1`. You should get:
+8 - Run the following command in Kibana:
+POST _bulk
+{"index": {"_index": "test_delete", "_id":1}}
+{"name": "clark kent", "aka": "superman"}
+{"index": {"_index": "test_delete"}}
+{"name": "louis XV", "aka": "le bien aimé"}
+Then run the first command of the 'DELETE' part. Check that the document with id 1 is well deleted by running `GET twitter/_doc/1`. You should get:
 {
-  "_index" : "twitter",
+  "_index" : "test_delete",
   "_type" : "_doc",
   "_id" : "1",
   "found" : false
 }
-Then run the second command and check the index 'twitter' no longer exists in the cluster: `GET _cat/indices?v`
+Then run the second command in the 'DELETE' part and check the index 'test_delete' no longer exists in the cluster: `GET _cat/indices?v`
