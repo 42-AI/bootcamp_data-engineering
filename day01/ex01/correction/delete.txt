@@ -1,3 +1,0 @@
-DELETE twitter/_doc/1
-
-DELETE twitter
