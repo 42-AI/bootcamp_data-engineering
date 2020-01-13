@@ -7,6 +7,14 @@ import ast
 import re
 
 def df_nan_filter(df):
+    """Apply filters on NaN values 
+    Args:
+      df: pandas dataframe.
+    Returns:
+      Filtered Dataframe.
+    Raises:
+      This function shouldn't raise any Exception.
+    """
     df = df[df["Size"].notnull()].copy()              # remove "Size" row if size is null
     df["Languages"].fillna("EN", inplace=True)        # set "EN" as langage if value is null
     df["Price"].fillna(0.0, inplace=True)             # set 0.0 as price if value is null
@@ -17,6 +25,14 @@ def df_nan_filter(df):
     return (df)
 
 def string_filter(s: str):
+    """Apply filters in order to clean the string.
+    Args:
+      s: string.
+    Returns:
+      Filtered String.
+    Raises:
+      This function shouldn't raise any Exception.
+    """
     s = ast.literal_eval("b'''%s'''" % s)
     s = s.decode('raw_unicode_escape').encode('ascii', 'ignore')
     s = re.sub('[\t\n\r\v\f]', ' ', s.decode())
@@ -25,6 +41,14 @@ def string_filter(s: str):
     return (s)
 
 def change_date_format(date: str):
+    """Change date format from dd/mm/yy to yy-mm-dd
+    Args:
+      date: a string representing the date.
+    Returns:
+      The date in the format yy-mm-dd.
+    Raises:
+      This function shouldn't raise any Exception.
+    """
     tmp = date.split('/')
     return (tmp[2]+"-"+tmp[1]+"-"+tmp[0])
     
