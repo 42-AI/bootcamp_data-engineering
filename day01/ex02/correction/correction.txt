@@ -1,5 +1,6 @@
-1- Run the request in ex02-rendu.txt file
-2- Run the following request in Kibana:
+1- Copy the request from ex02-rendu.txt into Kibana and run all the request
+
+2- Run the following request in Kibana and check you got only 2 hits of tweet posted in 2016 and beyond:
 GET twitter_better_mapping/_search
 {
   "query": {
@@ -11,35 +12,36 @@ GET twitter_better_mapping/_search
   }
 }
 
-You should get the following result (2 hits, _id might change):
-"hits" : {
-    "total" : {
-      "value" : 2,
-      "relation" : "eq"
-    },
-    "max_score" : 1.0,
-    "hits" : [
-      {
-        "_index" : "twitter_better_mapping",
-        "_type" : "_doc",
-        "_id" : "......",
-        "_score" : 1.0,
-        "_source" : {
-          "user" : "popol",
-          "post_date" : "20 01 2019",
-          "message" : "still trying out Elasticsearch"
-        }
-      },
-      {
-        "_index" : "twitter_better_mapping",
-        "_type" : "_doc",
-        "_id" : "....",
-        "_score" : 1.0,
-        "_source" : {
-          "user" : "jean mimich",
-          "post_date" : "01 01 2016",
-          "message" : "Trying something else"
-        }
-      }
-    ]
+3- Run the following command and check you got only one hit from user 'mimich':
+GET twitter_better_mapping/_search
+{
+  "query": {
+    "match": {
+      "user": "mimich"
+    }
   }
+}
+
+4- Run the following command:
+POST twitter_better_mapping/_doc
+{
+  "test_filed": "plop"
+}
+It should not work and you should get an error message like this one:
+{
+  "error": {
+    "root_cause": [
+      {
+        "type": "strict_dynamic_mapping_exception",
+        "reason": "mapping set to strict, dynamic introduction of [test_filed] within [_doc] is not allowed"
+      }
+    ],
+    "type": "strict_dynamic_mapping_exception",
+    "reason": "mapping set to strict, dynamic introduction of [test_filed] within [_doc] is not allowed"
+  },
+  "status": 400
+}
+
+5- Run the following request:
+GET _cat/indices
+Check that the size of the 'twitter_better_mapping' index is lower than 5kb
