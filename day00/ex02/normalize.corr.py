@@ -34,6 +34,8 @@ def nf_normalization_languages(df):
     df_languages = df_languages.reset_index(drop=True)
     return(df_languages)
 
+df = pd.read_csv("../ex01/appstore_games.cleaned.csv")
+
 df_genres = nf_normalization_genres(df)
 df_languages = nf_normalization_languages(df)
 df = df.drop(['Languages', 'Primary Genre', 'Genres'], axis=1)
