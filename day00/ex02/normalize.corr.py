@@ -2,30 +2,42 @@
 #   Ex02: Normalize   #
 #######################
 
-import pandas as pd
+import re
 
-def explode_format(x):
-    t = []
-    for e in x.split(','):
-        t.append(e.strip())
-    return(t)
+def nf_normalization_genres(df):
+    """Get normalized genres dataframe.
+    Args:
+      df: pandas dataframe.
+    Returns:
+      df_genres: pandas dataframe.
+    Raises:
+      This function shouldn't raise any Exception.
+    """
+    df_genres = df[["ID", "Primary Genre", "Genres"]].copy()
+    df_genres["Genres"] = df_genres["Genres"].apply(lambda x: re.split(r'[ ,]+', x))
+    df_genres = df_genres.explode('Genres')
+    df_genres = df_genres.reset_index(drop=True)
+    return(df_genres)
 
-def nf1_normalization(df):
-    l_df = df[["ID","Languages"]].copy()
-    l_df["Languages"] = l_df["Languages"].apply(lambda x: explode_format(x))
-    l_df = l_df.explode('Languages')
-    l_df = l_df.reset_index(drop=True)
+def nf_normalization_languages(df):
+    """Get normalized languages dataframe.
+    Args:
+      df: pandas dataframe.
+    Returns:
+      df_languages: pandas dataframe.
+    Raises:
+      This function shouldn't raise any Exception.
+    """
+    df_languages = df[["ID","Languages"]].copy()
+    df_languages["Languages"] = df_languages["Languages"].apply(lambda x: re.split(r'[ ,]+', x))
+    df_languages = df_languages.explode('Languages')
+    df_languages = df_languages.reset_index(drop=True)
+    return(df_languages)
 
-    g_df = df[["ID", "Primary Genre", "Genres"]].copy()
-    g_df["Genres"] = g_df["Genres"].apply(lambda x: explode_format(x))
-    g_df = g_df.explode('Genres')
-    g_df = g_df.reset_index(drop=True)
-    return(l_df, g_df)
-
-df = pd.read_csv("../ex01/appstore_games.cleaned.csv")
-l_df, g_df = nf1_normalization(df)
-l_df.to_csv("appstore_games_languages.normalized.csv", index=False)
-g_df.to_csv("appstore_games_genres.normalized.csv", index=False)
-
+df_genres = nf_normalization_genres(df)
+df_languages = nf_normalization_languages(df)
 df = df.drop(['Languages', 'Primary Genre', 'Genres'], axis=1)
-df.to_csv("appstore_games.normalized.csv", index=False)
+
+df.to_csv("appstore_games.normalized.csv")
+df_genres.to_csv("appstore_games_genres.normalized.csv")
+df_languages.to_csv("appstore_games_languages.normalized.csv")
