@@ -3,6 +3,7 @@
 #######################
 
 import re
+import pandas as pd
 
 def nf_normalization_genres(df):
     """Get normalized genres dataframe.
