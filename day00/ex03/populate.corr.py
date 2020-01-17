@@ -6,6 +6,10 @@ import pandas as pd
 import psycopg2
 from psycopg2.extensions import AsIs
 
+####################
+#   DELETE TABLE   #
+####################
+
 def delete_table(table: str):
     print("\tdeleting table '{}'".format(table),end='')
     conn = psycopg2.connect(
@@ -19,6 +23,10 @@ def delete_table(table: str):
     conn.commit()
     conn.close()
     print(' done !')
+
+#####################
+#   DISPLAY TABLE   #
+#####################
 
 def display_table(table: str):
     conn = psycopg2.connect(
@@ -34,8 +42,9 @@ def display_table(table: str):
         print(row)
     conn.close()
 
-# create table functions
-###########################
+##############################
+#   CREATE TABLE FUNCTIONS   #
+##############################
 
 def create_table_appstore_games():
     print("\tcreating table 'appstore_games' ...",end='')
@@ -47,7 +56,7 @@ def create_table_appstore_games():
     )
     curr = conn.cursor()
     curr.execute("""CREATE TABLE IF NOT EXISTS appstore_games(
-             Id bigint PRIMARY KEY,
+             Game_Id bigint PRIMARY KEY,
              Name varchar,
              Avg_user_rating float,
              User_rating_count int,
@@ -74,6 +83,7 @@ def create_table_appstore_games_languages():
     curr = conn.cursor()
     curr.execute("""CREATE TABLE IF NOT EXISTS appstore_games_languages(
              Id bigint PRIMARY KEY,
+             Game_Id bigint,
              Language varchar
              );""")
     conn.commit()
@@ -92,6 +102,7 @@ def create_table_appstore_games_genres():
     curr = conn.cursor()
     curr.execute("""CREATE TABLE IF NOT EXISTS appstore_games_genres(
              Id bigint PRIMARY KEY,
+             Game_Id bigint,
              Primary_genre varchar,
              Genre varchar
              );""")
@@ -99,8 +110,9 @@ def create_table_appstore_games_genres():
     conn.close()
     print(' done !')
 
-# populate functions
-#####################
+##########################
+#   POPULATE FUNCTIONS   #
+##########################
     
 def populate_appstore_games(df):
     print("\tpopulating table 'appstore_games' ...",end='')
@@ -114,7 +126,7 @@ def populate_appstore_games(df):
     for idx in range(df.shape[0]):
         tmp = df.iloc[idx]
         curr.execute("""INSERT INTO appstore_games
-            (Id, 
+            (Game_Id,
             Name, 
             Avg_user_rating,
             User_rating_count,
@@ -126,7 +138,7 @@ def populate_appstore_games(df):
             Release_date,
             Last_update) VALUES 
             (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)""",
-            (idx, 
+            (int(tmp["ID"]), 
              tmp["Name"],
              tmp["Average User Rating"],
              int(tmp["User Rating Count"]),
@@ -154,11 +166,13 @@ def populate_appstore_games_genres(df):
     for idx in range(df.shape[0]):
         tmp = df.iloc[idx]
         curr.execute("""INSERT INTO appstore_games_genres
-            (Id, 
+            (Id,
+            Game_Id,
             Primary_genre,
             Genre) VALUES 
-            (%s, %s, %s)""",
-            (idx, 
+            (%s, %s, %s, %s)""",
+            (idx,
+             int(tmp["ID"]),
              tmp["Primary Genre"],
              tmp["Genres"]
             ))
@@ -178,44 +192,54 @@ def populate_appstore_games_languages(df):
     for idx in range(df.shape[0]):
         tmp = df.iloc[idx]
         curr.execute("""INSERT INTO appstore_games_languages
-            (Id, 
+            (Id,
+            Game_Id,
             Language) VALUES 
-            (%s, %s)""",
-            (idx, 
+            (%s, %s, %s)""",
+            (idx,
+             int(tmp["ID"]),
              tmp["Languages"]
             ))
     conn.commit()
     conn.close()
     print(' done !')
 
-print("IMPORTING CSVS ...")
+############
+#   MAIN   #
+############
 
-print("\timporting '{}'".format('appstore_games.normalized.csv'), end='')
-df = pd.read_csv("../ex02/appstore_games.normalized.csv")
-print(' done !')
-print("\timporting '{}'".format('appstore_games_genres.normalized.csv'), end='')
-df_genres = pd.read_csv("../ex02/appstore_games_genres.normalized.csv")
-print(' done !')
-print("\timporting '{}'".format('appstore_games_languages.normalized.csv'), end='')
-df_languages = pd.read_csv("../ex02/appstore_games_languages.normalized.csv")
-print(' done !')
+def main():
+    print("IMPORTING CSVS ...")
 
-print("DELETING TABLES ...")
+    print("\timporting '{}'".format('appstore_games.normalized.csv'), end='')
+    df = pd.read_csv("../ex02/appstore_games.normalized.csv")
+    print(' done !')
+    print("\timporting '{}'".format('appstore_games_genres.normalized.csv'), end='')
+    df_genres = pd.read_csv("../ex02/appstore_games_genres.normalized.csv")
+    print(' done !')
+    print("\timporting '{}'".format('appstore_games_languages.normalized.csv'), end='')
+    df_languages = pd.read_csv("../ex02/appstore_games_languages.normalized.csv")
+    print(' done !')
 
-delete_table("appstore_games")
-delete_table("appstore_games_genres")
-delete_table("appstore_games_languages")
+    print("DELETING TABLES ...")
 
-print("CREATING TABLES ...")
+    delete_table("appstore_games")
+    delete_table("appstore_games_genres")
+    delete_table("appstore_games_languages")
 
-create_table_appstore_games()
-create_table_appstore_games_genres()
-create_table_appstore_games_languages()
+    print("CREATING TABLES ...")
 
-print("POPULATING TABLES ...")
+    create_table_appstore_games()
+    create_table_appstore_games_genres()
+    create_table_appstore_games_languages()
 
-populate_appstore_games(df)
-populate_appstore_games_genres(df_genres)
-populate_appstore_games_languages(df_languages)
+    print("POPULATING TABLES ...")
 
-print('ALL DONE !')
+    populate_appstore_games(df)
+    populate_appstore_games_genres(df_genres)
+    populate_appstore_games_languages(df_languages)
+
+    print('ALL DONE !')
+
+if __name__ == "__main__":
+    main()
