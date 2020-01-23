@@ -6,18 +6,22 @@ import pandas as pd
 import psycopg2
 from psycopg2.extensions import AsIs
 
-####################
-#   DELETE TABLE   #
-####################
-
-def delete_table(table: str):
-    print("\tdeleting table '{}'".format(table),end='')
+def set_connection():
     conn = psycopg2.connect(
         database="appstore_games",
         host="localhost",
         user="postgres_user",
         password="12345"
     )
+    return (conn)
+
+####################
+#   DELETE TABLE   #
+####################
+
+def delete_table(table: str):
+    print("\tdeleting table '{}'".format(table),end='')
+    conn = set_connection()
     curr = conn.cursor()
     curr.execute("DROP TABLE IF EXISTS %(table)s;", {"table": AsIs(table)})
     conn.commit()
@@ -29,12 +33,7 @@ def delete_table(table: str):
 #####################
 
 def display_table(table: str):
-    conn = psycopg2.connect(
-        database="appstore_games",
-        host="localhost",
-        user="postgres_user",
-        password="12345"
-    )
+    conn = set_connection()
     curr = conn.cursor()
     curr.execute("SELECT * FROM %(table)s", {"table": AsIs(table)})
     response = curr.fetchall()
@@ -48,12 +47,7 @@ def display_table(table: str):
 
 def create_table_appstore_games():
     print("\tcreating table 'appstore_games' ...",end='')
-    conn = psycopg2.connect(
-        database="appstore_games",
-        host="localhost",
-        user="postgres_user",
-        password="12345"
-    )
+    conn = set_connection()
     curr = conn.cursor()
     curr.execute("""CREATE TABLE IF NOT EXISTS appstore_games(
              Game_Id bigint PRIMARY KEY,
@@ -74,16 +68,11 @@ def create_table_appstore_games():
 
 def create_table_appstore_games_languages():
     print("\tcreating table 'appstore_games_languages' ...",end='')
-    conn = psycopg2.connect(
-        database="appstore_games",
-        host="localhost",
-        user="postgres_user",
-        password="12345"
-    )
+    conn = set_connection()
     curr = conn.cursor()
     curr.execute("""CREATE TABLE IF NOT EXISTS appstore_games_languages(
              Id bigint PRIMARY KEY,
-             Game_Id bigint,
+             Game_Id bigint REFERENCES appstore_games(Game_id),
              Language varchar
              );""")
     conn.commit()
@@ -93,16 +82,11 @@ def create_table_appstore_games_languages():
 
 def create_table_appstore_games_genres():
     print("\tcreating table 'appstore_games_genres' ...",end='')
-    conn = psycopg2.connect(
-        database="appstore_games",
-        host="localhost",
-        user="postgres_user",
-        password="12345"
-    )
+    conn = set_connection()
     curr = conn.cursor()
     curr.execute("""CREATE TABLE IF NOT EXISTS appstore_games_genres(
              Id bigint PRIMARY KEY,
-             Game_Id bigint,
+             Game_Id bigint REFERENCES appstore_games(Game_id),
              Primary_genre varchar,
              Genre varchar
              );""")
@@ -116,12 +100,7 @@ def create_table_appstore_games_genres():
     
 def populate_appstore_games(df):
     print("\tpopulating table 'appstore_games' ...",end='')
-    conn = psycopg2.connect(
-        database="appstore_games",
-        host="localhost",
-        user="postgres_user",
-        password="12345"
-    )
+    conn = set_connection()
     curr = conn.cursor()
     for idx in range(df.shape[0]):
         tmp = df.iloc[idx]
@@ -156,12 +135,7 @@ def populate_appstore_games(df):
 
 def populate_appstore_games_genres(df):
     print("\tpopulating table 'appstore_games_genres' ...",end='')
-    conn = psycopg2.connect(
-        database="appstore_games",
-        host="localhost",
-        user="postgres_user",
-        password="12345"
-    )
+    conn = set_connection()
     curr = conn.cursor()
     for idx in range(df.shape[0]):
         tmp = df.iloc[idx]
@@ -182,12 +156,7 @@ def populate_appstore_games_genres(df):
     
 def populate_appstore_games_languages(df):
     print("\tpopulating table 'appstore_games_languages' ...",end='')
-    conn = psycopg2.connect(
-        database="appstore_games",
-        host="localhost",
-        user="postgres_user",
-        password="12345"
-    )
+    conn = set_connection()
     curr = conn.cursor()
     for idx in range(df.shape[0]):
         tmp = df.iloc[idx]
@@ -212,13 +181,13 @@ def main():
     print("IMPORTING CSVS ...")
 
     print("\timporting '{}'".format('appstore_games.normalized.csv'), end='')
-    df = pd.read_csv("../ex02/appstore_games.normalized.csv")
+    df = pd.read_csv("appstore_games.normalized.csv")
     print(' done !')
     print("\timporting '{}'".format('appstore_games_genres.normalized.csv'), end='')
-    df_genres = pd.read_csv("../ex02/appstore_games_genres.normalized.csv")
+    df_genres = pd.read_csv("appstore_games_genres.normalized.csv")
     print(' done !')
     print("\timporting '{}'".format('appstore_games_languages.normalized.csv'), end='')
-    df_languages = pd.read_csv("../ex02/appstore_games_languages.normalized.csv")
+    df_languages = pd.read_csv("appstore_games_languages.normalized.csv")
     print(' done !')
 
     print("DELETING TABLES ...")
