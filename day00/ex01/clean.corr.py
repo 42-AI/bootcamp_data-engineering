@@ -3,7 +3,6 @@
 ###################
 
 import pandas as pd
-import ast
 import re
 
 def df_nan_filter(df):
@@ -33,11 +32,9 @@ def string_filter(s: str):
     Raises:
       This function shouldn't raise any Exception.
     """
-    s = ast.literal_eval("b'''%s'''" % s)
-    s = s.decode('raw_unicode_escape').encode('ascii', 'ignore')
-    s = re.sub('[\t\n\r\v\f]', ' ', s.decode())
-    s = re.sub(' +', ' ', s)
-    s = s.strip('"')
+    s = re.sub(r'\\+(t|n|U[a-z0-9]{8}|u[a-z0-9]{4}|x[a-z0-9]{2})', ' ', s)
+    s = re.sub(r'[\\\""]+', '', s)
+    s = re.sub(r' +', ' ', s)
     return (s)
 
 def change_date_format(date: str):
@@ -50,6 +47,8 @@ def change_date_format(date: str):
       This function shouldn't raise any Exception.
     """
     tmp = date.split('/')
+    if len(tmp) < 3:
+        print(tmp)
     return (tmp[2]+"-"+tmp[1]+"-"+tmp[0])
     
 df = pd.read_csv("appstore_games.csv")
@@ -62,8 +61,7 @@ df = df[["ID", "Name", "Average User Rating",
 
 df = df_nan_filter(df)
 
-for col in df:
-    df[col] = df[col].apply(lambda x: string_filter(str(x)))
+df["Description"] = df["Description"].apply(lambda x: string_filter(x))
 
 df["Original Release Date"] = df["Original Release Date"].apply(lambda x: change_date_format(x))
 df["Current Version Release Date"] = df["Current Version Release Date"].apply(lambda x: change_date_format(x))
