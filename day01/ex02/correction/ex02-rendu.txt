@@ -1,4 +1,4 @@
-GET twitter/_search
+GET twitter/_mapping
 
 PUT twitter_better_mapping/
 {
