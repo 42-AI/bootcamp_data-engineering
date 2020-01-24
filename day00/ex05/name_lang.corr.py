@@ -5,13 +5,17 @@
 import psycopg2
 from psycopg2.extensions import AsIs
 
-def get_name_lang():
+def get_connection():
     conn = psycopg2.connect(
         database="appstore_games",
         host="localhost",
         user="postgres_user",
         password="12345"
     )
+    return (conn)
+
+def get_name_lang():
+    conn = get_connection()
     curr = conn.cursor()
     curr.execute(""" SELECT Name, Language
                      FROM appstore_games
@@ -22,6 +26,6 @@ def get_name_lang():
                  """)
     response = curr.fetchall()
     for row in response:
-        print(row)
+        print(row[0], row[1])
     conn.close()
 get_name_lang()
