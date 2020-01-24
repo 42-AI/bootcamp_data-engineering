@@ -6,7 +6,11 @@ import pandas as pd
 import psycopg2
 from psycopg2.extensions import AsIs
 
-def set_connection():
+######################
+#   SET CONNECTION   #
+######################
+
+def get_connection():
     conn = psycopg2.connect(
         database="appstore_games",
         host="localhost",
@@ -35,9 +39,9 @@ def delete_table(table: str):
 def display_table(table: str):
     conn = set_connection()
     curr = conn.cursor()
-    curr.execute("SELECT * FROM %(table)s", {"table": AsIs(table)})
+    curr.execute("SELECT * FROM %(table)s LIMIT 10", {"table": AsIs(table)})
     response = curr.fetchall()
-    for row in response[:10]:
+    for row in response:
         print(row)
     conn.close()
 
