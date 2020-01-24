@@ -32,6 +32,7 @@ def string_filter(s: str):
     Raises:
       This function shouldn't raise any Exception.
     """
+    # filter : \\t, \\n, \\U0001a1b2, \\u1a2b, \\x1a
     s = re.sub(r'\\+(t|n|U[a-z0-9]{8}|u[a-z0-9]{4}|x[a-z0-9]{2})', ' ', s)
     s = re.sub(r'[\\\""]+', '', s)
     s = re.sub(r' +', ' ', s)
@@ -47,8 +48,6 @@ def change_date_format(date: str):
       This function shouldn't raise any Exception.
     """
     tmp = date.split('/')
-    if len(tmp) < 3:
-        print(tmp)
     return (tmp[2]+"-"+tmp[1]+"-"+tmp[0])
     
 df = pd.read_csv("appstore_games.csv")
