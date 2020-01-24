@@ -6,12 +6,14 @@ The function `connect()` creates a new database session and returns a new connec
 ```python
 import psycopg2
 
-conn = psycopg2.connect(
-    database="appstore_games",
-    host="localhost",
-    user="postgres_user",
-    password="12345"
-)
+def get_connection():
+    conn = psycopg2.connect(
+        database="appstore_games",
+        host="localhost",
+        user="postgres_user",
+        password="12345"
+    )
+    return (conn)
 ```
 
 Cursors allows Python code to execute PostgreSQL command in a database session.
@@ -46,16 +48,18 @@ This gives the following full code.
 ```python
 import psycopg2
 
-if __name__ == "__main__":
+def get_connection():
     conn = psycopg2.connect(
         database="appstore_games",
         host="localhost",
         user="postgres_user",
         password="12345"
     )
+    return (conn)
 
+if __name__ == "__main__":
+    conn = get_connection()
     curr = conn.cursor()
-    
     curr.execute("""CREATE TABLE members (
                     id serial PRIMARY KEY,
                     firstname varchar(32),
@@ -63,12 +67,12 @@ if __name__ == "__main__":
                     birthdate date
                 )
     """)
-    
     conn.commit()
     conn.close()
 ```
 
 ## Inserting data
+
 Data can be inserted into a table with the following synthax.
 ```python
 curr.execute("""
@@ -77,7 +81,9 @@ curr.execute("""
             ('Joe', 'Bonamassa', '1977-05-08')
 """)
 ```
+
 ## Delete data
+
 Data can alo be deleted.  
 ```python
 curr.execute("""DELETE FROM members 
@@ -85,19 +91,30 @@ curr.execute("""DELETE FROM members
 """)
 ```
 
+# Useful functions
+
+## get connections
+
+```python
+def get_connection():
+    conn = psycopg2.connect(
+        database="appstore_games",
+        host="localhost",
+        user="postgres_user",
+        password="12345"
+    )
+    return (conn)
+```
+
 ## Showing table content
 
 We must use the `fetchall` function to gather all the result in a list of tuples.
 ```python
-def display_table():
-    conn = psycopg2.connect(
-        database="appstore_games",
-        host="localhost",
-        user="user",
-        password="xxxx"
-    )
+def display_table(table: str):
+    conn = set_connection()
     curr = conn.cursor()
-    curr.execute("""SELECT * FROM test""")
+    curr.execute("""SELECT * FROM %(table)s 
+                    LIMIT 10""", {"table": AsIs(table)})
     response = curr.fetchall()
     for row in response:
         print(row)
@@ -108,12 +125,7 @@ def display_table():
 
 ```python
 def create_table():
-    conn = psycopg2.connect(
-        database="appstore_games",
-        host="localhost",
-        user="user",
-        password="xxxx"
-    )
+    conn = get_connection()
     curr = conn.cursor()
     curr.execute("""CREATE TABLE test(
              FirstName varchar PRIMARY KEY,
@@ -127,15 +139,10 @@ def create_table():
 ## Drop table
 
 ```python
-def delete_table():
-    conn = psycopg2.connect(
-        database="appstore_games",
-        host="localhost",
-        user="user",
-        password="xxxx"
-    )
+def delete_table(table: str):
+    conn = set_connection()
     curr = conn.cursor()
-    curr.execute('DROP TABLE test;')          
+    curr.execute("DROP TABLE IF EXISTS %(table)s;", {"table": AsIs(table)})
     conn.commit()
     conn.close()
 ```
@@ -143,16 +150,17 @@ def delete_table():
 ## Inserting data into table
 
 ```python
-def delete_table():
-    conn = psycopg2.connect(
-        database="appstore_games",
-        host="localhost",
-        user="user",
-        password="xxxx"
-    )
+def populate_table():
+    conn = get_connection()
     curr = conn.cursor()
     curr.execute("""INSERT INTO test
-            (FirstName, LastName, Age) VALUES (%s, %s, %s)""", ('Michelle', 'Dupont', '33'))      
+            (FirstName,
+            LastName,
+            Age) VALUES
+            (%s, %s, %s)""",
+            ('Michelle', 
+            'Dupont', 
+            '33'))      
     conn.commit()
     conn.close()
 ```
