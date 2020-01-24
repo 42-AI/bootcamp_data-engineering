@@ -5,25 +5,25 @@
 import psycopg2
 from psycopg2.extensions import AsIs
 
-def get_battle_royale():
+def get_connection():
     conn = psycopg2.connect(
         database="appstore_games",
         host="localhost",
         user="postgres_user",
         password="12345"
     )
+    return (conn)
+
+def get_battle_royale():
+    conn = get_connection()
     curr = conn.cursor()
     curr.execute(""" SELECT Name, Description
                      FROM appstore_games
-                     WHERE Description
-                     ILIKE '%battle_royale%';
+                     WHERE Description ILIKE '%battle_royale%'
+                     AND Description ~ '.*https?://(www\.)?(facebook|fb)\.(com).*';
                  """)
     response = curr.fetchall()
-    count = 0
     for row in response:
-        if re.match(r'.*http.{1,10}(facebook|fb).*', row[1]):
-            print(row)
-            count += 1
-    print(count)
+        print(row[0])
     conn.close()
 get_battle_royale()
