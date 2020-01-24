@@ -1,0 +1,13 @@
+1- Copy the query from ex03-rendu.txt into Kibana and run all the request
+
+2- Run the following request in Kibana and check you got 1 hit for the school 42
+
+GET school_bis/_search
+{
+  "query":
+  {
+     "match": {
+       "text": "programming"
+     }
+  }
+}
