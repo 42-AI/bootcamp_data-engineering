@@ -5,28 +5,35 @@
 import psycopg2
 from psycopg2.extensions import AsIs
 
-def get_benefits():
+
+def get_connection():
     conn = psycopg2.connect(
         database="appstore_games",
         host="localhost",
         user="postgres_user",
         password="12345"
     )
+    return (conn)
+
+
+def get_benefits():
+    conn = get_connection()
     curr = conn.cursor()
-    curr.execute(""" SELECT Name, User_rating_count, Price
-                     FROM appstore_games;
+    curr.execute(""" SELECT Name
+                     FROM appstore_games
+                     ORDER BY (User_rating_count * Price) DESC
+                     LIMIT 10;
                  """)
     response = curr.fetchall()
     tmp = {}
     for row in response:
-        tmp [row[0]] = round(row[1] * row[2], 2)
-        
-    tmp = {k: v for k, v in sorted(tmp.items(), key=lambda item: item[1], reverse=True)}
-    count = 0
-    for k, v in tmp.items():
-        print(k)
-        count += 1
-        if count == 10:
-            break
+        print(row[0])
     conn.close()
-get_benefits()
+
+
+def main():
+    get_benefits()
+
+
+if __name__ == "__main__":
+    main()
