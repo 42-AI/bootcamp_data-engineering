@@ -2,11 +2,13 @@
 #   Ex01: Clean   #
 ###################
 
+
 import pandas as pd
 import re
 
+
 def df_nan_filter(df):
-    """Apply filters on NaN values 
+    """Apply filters on NaN values
     Args:
       df: pandas dataframe.
     Returns:
@@ -14,14 +16,21 @@ def df_nan_filter(df):
     Raises:
       This function shouldn't raise any Exception.
     """
-    df = df[df["Size"].notnull()].copy()              # remove "Size" row if size is null
-    df["Languages"].fillna("EN", inplace=True)        # set "EN" as langage if value is null
-    df["Price"].fillna(0.0, inplace=True)             # set 0.0 as price if value is null
+    # remove "Size" row if value is null
+    # set "EN" as langage if value is null
+    # set 0.0 as price if value is null
+    # set median as user_rating if value is null
+    # replace nan counts with 1
+
+    df = df[df["Size"].notnull()].copy()
+    df["Languages"].fillna("EN", inplace=True)
+    df["Price"].fillna(0.0, inplace=True)
     df["Average User Rating"].fillna(
-    df["Average User Rating"].median(), inplace=True) # set median as user_rating if value is null
-    df["User Rating Count"].fillna(1, inplace=True)   #replace nan counts with 1
-    df.drop_duplicates(subset ="ID",inplace = True)
+            df["Average User Rating"].median(), inplace=True)
+    df["User Rating Count"].fillna(1, inplace=True)
+    df.drop_duplicates(subset="ID", inplace=True)
     return (df)
+
 
 def string_filter(s: str):
     """Apply filters in order to clean the string.
@@ -38,6 +47,7 @@ def string_filter(s: str):
     s = re.sub(r' +', ' ', s)
     return (s)
 
+
 def change_date_format(date: str):
     """Change date format from dd/mm/yy to yy-mm-dd
     Args:
@@ -49,23 +59,46 @@ def change_date_format(date: str):
     """
     tmp = date.split('/')
     return (tmp[2]+"-"+tmp[1]+"-"+tmp[0])
-    
-df = pd.read_csv("appstore_games.csv")
 
-df = df[["ID", "Name", "Average User Rating",
-          "User Rating Count", "Price", "Description",
-          "Developer", "Age Rating", "Languages",
-          "Size", "Primary Genre", "Genres",
-          "Original Release Date", "Current Version Release Date"]]
 
-df = df_nan_filter(df)
+def main():
+    df = pd.read_csv("appstore_games.csv")
 
-df["Description"] = df["Description"].apply(lambda x: string_filter(x))
+    # selecting columns
+    df = (
+        df[["ID", "Name", "Average User Rating",
+            "User Rating Count", "Price", "Description",
+            "Developer", "Age Rating", "Languages",
+            "Size", "Primary Genre", "Genres",
+            "Original Release Date", "Current Version Release Date"]]
+    )
+    # apply nan_filter
+    df = df_nan_filter(df)
 
-df["Original Release Date"] = df["Original Release Date"].apply(lambda x: change_date_format(x))
-df["Current Version Release Date"] = df["Current Version Release Date"].apply(lambda x: change_date_format(x))
-df["Age Rating"] = df["Age Rating"].apply(lambda x: int(x[:-1]))
-df['User Rating Count'] = df['User Rating Count'].apply(lambda x: int(float(x)))
-df['Size'] = df['Size'].apply(lambda x: int(float(x)))
+    # apply string_filter
+    df["Name"] = df["Name"].apply(lambda x: string_filter(x))
+    df["Description"] = df["Description"].apply(lambda x: string_filter(x))
 
-df.to_csv("appstore_games.cleaned.csv", index=False)
+    # apply change_date_format
+    df["Original Release Date"] = (
+            df["Original Release Date"].apply(lambda x: change_date_format(x))
+    )
+    df["Current Version Release Date"] = (
+        df["Current Version Release Date"].apply(
+            lambda x: change_date_format(x)
+        )
+    )
+
+    # apply int conversion
+    df["Age Rating"] = df["Age Rating"].apply(lambda x: int(x[:-1]))
+    df['User Rating Count'] = (
+        df['User Rating Count'].apply(lambda x: int(float(x)))
+    )
+    df['Size'] = df['Size'].apply(lambda x: int(float(x)))
+
+    # saving file as csv
+    df.to_csv("appstore_games.cleaned.csv", index=False)
+
+
+if __name__ == "__main__":
+    main()
