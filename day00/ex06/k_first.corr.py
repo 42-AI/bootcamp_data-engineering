@@ -5,6 +5,7 @@
 import psycopg2
 from psycopg2.extensions import AsIs
 
+
 def get_connection():
     conn = psycopg2.connect(
         database="appstore_games",
@@ -13,6 +14,7 @@ def get_connection():
         password="12345"
     )
     return (conn)
+
 
 def get_k_first():
     conn = get_connection()
@@ -28,4 +30,11 @@ def get_k_first():
     for row in response:
         print(row[0])
     conn.close()
-get_k_first()
+
+
+def main():
+    get_k_first()
+
+
+if __name__ == "__main__":
+    main()
