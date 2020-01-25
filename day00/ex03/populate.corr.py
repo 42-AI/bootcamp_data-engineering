@@ -208,9 +208,9 @@ def main():
 
     print("DELETING TABLES ...")
 
-    delete_table("appstore_games")
     delete_table("appstore_games_genres")
     delete_table("appstore_games_languages")
+    delete_table("appstore_games")
 
     print("CREATING TABLES ...")
 
