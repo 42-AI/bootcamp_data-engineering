@@ -6,6 +6,7 @@ import psycopg2
 from psycopg2.extensions import AsIs
 import re
 
+
 def get_connection():
     conn = psycopg2.connect(
         database="appstore_games",
@@ -14,6 +15,7 @@ def get_connection():
         password="12345"
     )
     return (conn)
+
 
 def get_top_100():
     conn = get_connection()
@@ -28,4 +30,11 @@ def get_top_100():
     for row in response:
         print(row[0])
     conn.close()
-get_top_100()
+
+
+def main():
+    get_top_100()
+
+
+if __name__ == "__main__":
+    main()
