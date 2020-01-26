@@ -25,7 +25,6 @@ def get_benefits():
                      LIMIT 10;
                  """)
     response = curr.fetchall()
-    tmp = {}
     for row in response:
         print(row[0])
     conn.close()
