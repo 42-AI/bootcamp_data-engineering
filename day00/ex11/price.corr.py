@@ -7,7 +7,6 @@ from psycopg2.extensions import AsIs
 
 import numpy as np
 import matplotlib.pyplot as plt
-%matplotlib inline
 
 
 def get_connection():
@@ -23,17 +22,20 @@ def get_connection():
 def get_price():
     conn = get_connection()
     curr = conn.cursor()
-    curr.execute(""" SELECT Price
+    curr.execute(""" SELECT Price, COUNT(Price)
                      FROM appstore_games
+                     GROUP BY Price
+                     ORDER BY Price
                  """)
     response = curr.fetchall()
-    uniq = sorted(set(response))
+    response = sorted(response)
     data = []
-    for e in uniq:
-        if int(e[0]) == 0:
-            continue
-        for _ in range(response.count(e)):
+    for e in response:
+        for _ in range(e[1]):
             data.append(e[0])
+    print("mean price : ", np.mean(data))
+    print("std price : ", np.std(data))
+    data = [e for e in data if e > 0]
     bins = []
     for i in range(0, 200, 3):
         bins.append(i)
@@ -43,8 +45,6 @@ def get_price():
     plt.title("Appstore games price")
     plt.savefig("price.png")
     plt.show()
-    print("mean price : ", np.mean(response))
-    print("std price : ", np.std(response))
     conn.close()
 
 
