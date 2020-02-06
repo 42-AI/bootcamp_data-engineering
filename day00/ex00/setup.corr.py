@@ -2,9 +2,15 @@
 #   Ex00: Setup   #
 ###################
 
-import getpass
 import psycopg2
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
+import os
+import getpass
+
+if os.uname()[0] == "Linux":
+    user = "postgres"
+else:
+    user = getpass.getuser()
 
 ###################
 #   BOILERPLATE   #
@@ -22,7 +28,7 @@ def run_sql(query: str,
     try:
         conn = psycopg2.connect(
             dbname=db,
-            user="postgres",
+            user=user,
             host="localhost",
             password=passwd
         )
@@ -44,7 +50,6 @@ def run_sql(query: str,
         res = curr.fetchall()
     if commit:
         conn.commit()
-
     conn.close()
     return (res)
 
@@ -65,8 +70,8 @@ def drop_database(db: str):
     run_sql("DROP DATABASE IF EXISTS {}".format(db), commit=True)
     print("Done !")
 
-
-def change_passwd(user: str, passwd: str):
+    
+def change_passwd(user: str, passwd:str):
     print("Changing password for '{}' ... ".format(user), end="")
     run_sql("ALTER USER {} PASSWORD '{}';".format(user, passwd), commit=True)
     print("Done !")
@@ -93,7 +98,7 @@ def alter_database(db: str, user: str):
 
 
 def main():
-    change_passwd("postgres", "12345")
+    change_passwd(user, "12345")
     drop_database("appstore_games")
     create_database("appstore_games")
     drop_user("postgres_user")
