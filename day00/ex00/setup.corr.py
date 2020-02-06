@@ -22,8 +22,8 @@ def run_sql(query: str,
     try:
         conn = psycopg2.connect(
             dbname=db,
-            user=getpass.getuser(),
-            host='',
+            user="postgres",
+            host="localhost",
             password=passwd
         )
     except Exception as e:
@@ -44,6 +44,7 @@ def run_sql(query: str,
         res = curr.fetchall()
     if commit:
         conn.commit()
+
     conn.close()
     return (res)
 
@@ -62,6 +63,12 @@ def create_database(db: str):
 def drop_database(db: str):
     print("Dropping '{}' database ... ".format(db), end="")
     run_sql("DROP DATABASE IF EXISTS {}".format(db), commit=True)
+    print("Done !")
+
+
+def change_passwd(user: str, passwd: str):
+    print("Changing password for '{}' ... ".format(user), end="")
+    run_sql("ALTER USER {} PASSWORD '{}';".format(user, passwd), commit=True)
     print("Done !")
 
 
@@ -86,6 +93,7 @@ def alter_database(db: str, user: str):
 
 
 def main():
+    change_passwd("postgres", "12345")
     drop_database("appstore_games")
     create_database("appstore_games")
     drop_user("postgres_user")
