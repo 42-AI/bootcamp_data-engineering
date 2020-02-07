@@ -2,24 +2,11 @@
 #   Ex12: Worldwide   #
 #######################
 
-import psycopg2
-from psycopg2.extensions import AsIs
-
-
-def get_connection():
-    conn = psycopg2.connect(
-        database="appstore_games",
-        host="localhost",
-        user="postgres_user",
-        password="12345"
-    )
-    return (conn)
+from correction.utils.utils import run_sql
 
 
 def get_worldwide():
-    conn = get_connection()
-    curr = conn.cursor()
-    curr.execute("""
+    res = run_sql("""
                 SELECT Genre, COUNT(appstore_games_genres.Game_Id)
                 FROM appstore_games_genres
                 INNER JOIN (
@@ -32,12 +19,9 @@ def get_worldwide():
                 GROUP BY Genre
                 ORDER BY COUNT(appstore_games_genres.Game_Id) DESC
                 LIMIT 5
-                """)
-
-    response = curr.fetchall()
-    for e in response:
+                """, fetch=True)
+    for e in res:
         print(e[0])
-    conn.close()
 
 
 def main():
