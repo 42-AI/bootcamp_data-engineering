@@ -5,9 +5,19 @@
 import pandas as pd
 import psycopg2
 
+
 #############
 #   UTILS   #
 #############
+
+def get_connection():
+    conn = psycopg2.connect(
+        database="appstore_games",
+        host="localhost",
+        user="postgres_user",
+        password="12345"
+    )
+    return (conn)
 
 
 def run_sql(query: str,
@@ -67,7 +77,6 @@ def import_csv(file):
 ##############################
 #   CREATE TABLE FUNCTIONS   #
 ##############################
-
 
 def create_table(table, query):
     print("\tCreating table '{}' ...".format(table), end='')
