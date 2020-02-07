@@ -9,7 +9,7 @@ def get_seniors():
     res = run_sql("""
                     SELECT Developer
                     FROM appstore_games
-                    WHERE appstore_games.Release_date < '2008-07-30 00:00:00'
+                    WHERE appstore_games.Release_date < '2008-08-01 00:00:00'
                     AND appstore_games.Last_update > '2018-01-01 00:00:00';
                  """, fetch=True)
     for row in res:
