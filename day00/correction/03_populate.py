@@ -4,55 +4,11 @@
 
 import pandas as pd
 import psycopg2
-
+from correction.utils.utils import run_sql, get_connection
 
 #############
 #   UTILS   #
 #############
-
-def get_connection():
-    conn = psycopg2.connect(
-        database="appstore_games",
-        host="localhost",
-        user="postgres_user",
-        password="12345"
-    )
-    return (conn)
-
-
-def run_sql(query: str,
-            db="appstore_games",
-            passwd="12345",
-            fetch=False,
-            commit=False):
-    res = ""
-
-    # Connection to the database
-    try:
-        conn = psycopg2.connect(
-            database=db,
-            host="localhost",
-            user="postgres_user",
-            password=passwd
-        )
-    except Exception as e:
-        print("Connection Error :: {}".format(str(e).strip()))
-        return (res)
-    curr = conn.cursor()
-
-    # Run sql query
-    try:
-        curr.execute("{}".format(query))
-    except Exception as e:
-        print("Query Error :: {}".format(str(e).strip()))
-
-    # Fetch results
-    if fetch:
-        res = curr.fetchall()
-    if commit:
-        conn.commit()
-    conn.close()
-    return (res)
 
 
 def delete_table(table: str):
@@ -107,7 +63,7 @@ def create_table_appstore_games_languages():
                  """
                  CREATE TABLE IF NOT EXISTS {} (
                      Id bigint PRIMARY KEY,
-                     Game_Id bigint,
+                     Game_Id bigint REFERENCES appstore_games(Game_Id),
                      Language varchar
                  );""")
 
@@ -117,7 +73,7 @@ def create_table_appstore_games_genres():
                  """
                  CREATE TABLE IF NOT EXISTS {} (
                      Id bigint PRIMARY KEY,
-                     Game_Id bigint,
+                     Game_Id bigint REFERENCES appstore_games(Game_Id),
                      Primary_genre varchar,
                      Genre varchar
                  );""")
