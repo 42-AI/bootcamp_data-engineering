@@ -44,7 +44,7 @@ def nf_normalization_languages(df):
 
 
 def main():
-    df = pd.read_csv("../ex01/appstore_games.cleaned.csv")
+    df = pd.read_csv("appstore_games.cleaned.csv")
 
     # normalize dataframes
     df_genres = nf_normalization_genres(df)
