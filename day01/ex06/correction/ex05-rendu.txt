@@ -1,31 +1,20 @@
 GET appstore_game/_search
 {
-  "_source": ["Developer", "Original Release Date", "Current Version Release Date"],
+  "_source": ["Name", "Languages", "Price"],
+  "size": 10000,
   "query":
   {
     "bool":
     {
-      "must":
-      [
-        {
-          "range":
-          {
-            "Original Release Date":
-            {
-              "lte": "01/08/2008"
-            }
-          }
-        },
-        {
-          "range":
-          {
-            "Current Version Release Date":
-            {
-              "gte": "01/01/2018"
-            }
+      "filter":
+      {
+        "range": {
+          "Price": {
+            "gte": 5,
+            "lte": 10
           }
         }
-      ]
+      }
     }
   }
 }
