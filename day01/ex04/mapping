@@ -1,0 +1,84 @@
+PUT appstore_game
+{
+  "mappings": 
+  {
+    "properties" : {
+      "Genres" : 
+      {
+        "type" : "keyword"
+      },
+      "Languages" : 
+      {
+        "type" : "keyword"
+      },
+      "Age Rating" : 
+      {
+        "enabled" : false
+      },
+      "Age_rating" : 
+      {
+        "type" : "integer"
+      },
+      "Average User Rating" : 
+      {
+        "type" : "float"
+      },
+      "Current Version Release Date" : 
+      {
+        "type" : "date",
+        "format": ["d/MM/yyyy"]
+      },
+      "Description" : 
+      {
+        "type" : "text",
+        "analyzer": "english"
+      },
+      "Developer" : 
+      {
+      "type" : "keyword"
+      },
+      "ID" : 
+      {
+        "type" : "long"
+      },
+      "Icon URL" : 
+      {
+        "enabled" : false
+      },
+      "Name" : 
+      {
+        "type" : "text",
+        "fields" : {
+          "keyword" : {
+            "type" : "keyword",
+            "ignore_above" : 256
+          }
+        }
+      },
+      "Original Release Date" : 
+      {
+        "type" : "date",
+        "format": ["d/MM/yyyy"]
+      },
+      "Price" : 
+      {
+        "type" : "float"
+      },
+      "Primary Genre" : 
+      {
+        "type" : "keyword"
+      },
+      "Size" : {
+        "type" : "long"
+      },
+      "URL" : 
+      {
+        "enabled" : false
+      },
+      "User Rating Count" : 
+      {
+        "type" : "integer"
+      }
+    }
+  }
+}
