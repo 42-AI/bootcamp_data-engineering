@@ -1,0 +1,39 @@
+1- Copy the query from ex05-rendu.txt into Kibana and run the request.  
+
+The hits list shall be as follow :
+
+"hits" : [
+  {
+	"_index" : "appstore_game_jj",
+	"_type" : "_doc",
+	"_id" : "AH7zHnAB61xSishGOnvK",
+	"_score" : 2.0,
+	"_source" : {
+	  "Original Release Date" : "30/07/2008",
+	  "Developer" : "OutOfTheBit Ltd",
+	  "Current Version Release Date" : "29/04/2019"
+	}
+  },
+  {
+	"_index" : "appstore_game_jj",
+	"_type" : "_doc",
+	"_id" : "g37zHnAB61xSishGL3oC",
+	"_score" : 2.0,
+	"_source" : {
+	  "Original Release Date" : "18/07/2008",
+	  "Developer" : "RoGame Software",
+	  "Current Version Release Date" : "22/07/2018"
+	}
+  },
+  {
+	"_index" : "appstore_game_jj",
+	"_type" : "_doc",
+	"_id" : "_37zHnAB61xSishGOnrJ",
+	"_score" : 2.0,
+	"_source" : {
+	  "Original Release Date" : "11/07/2008",
+	  "Developer" : "Kiss The Machine",
+	  "Current Version Release Date" : "17/05/2018"
+	}
+  }
+]
