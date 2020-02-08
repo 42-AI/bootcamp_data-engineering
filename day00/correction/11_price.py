@@ -5,7 +5,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-from correction.utils.utils import run_sql
+from utils.utils import run_sql
 
 
 def get_price():

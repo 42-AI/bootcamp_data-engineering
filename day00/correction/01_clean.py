@@ -3,8 +3,8 @@
 ###################
 
 
-import pandas as pd
 import re
+from utils.utils import import_csv
 
 
 def df_nan_filter(df):
@@ -62,7 +62,9 @@ def change_date_format(date: str):
 
 
 def main():
-    df = pd.read_csv("appstore_games.csv")
+    df = import_csv("appstore_games.csv")
+    if df is None:
+        return(None)
 
     # selecting columns
     df = (

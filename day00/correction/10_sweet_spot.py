@@ -2,7 +2,7 @@
 #   Ex10: Sweet_spot   #
 ########################
 
-from correction.utils.utils import run_sql
+from utils.utils import run_sql
 
 
 def get_sweet_spot():

@@ -4,12 +4,13 @@
 
 import psycopg2
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
+import pandas as pd
 
 def get_connection(
-				user="postgres_user",
-				db="appstore_games",
-				passwd="12345"
-				):
+        user="postgres_user",
+        db="appstore_games",
+        passwd="12345"
+    ):
     conn = psycopg2.connect(
         database=db,
         host="localhost",
@@ -17,6 +18,17 @@ def get_connection(
         password=passwd
     )
     return (conn)
+
+def import_csv(file, prefix=""):
+    print(prefix, "Importing '{}'".format(file), end='')
+    try:
+        df = pd.read_csv(file)
+    except Exception as e:
+        print(" Failed !")
+        print(e)
+        return(None)
+    print(" Done !")
+    return (df)
 
 def run_sql(query: str,
 			user="postgres_user",
@@ -49,7 +61,10 @@ def run_sql(query: str,
 
     # Fetch results
     if fetch:
-        res = curr.fetchall()
+        try:
+            res = curr.fetchall()
+        except Exception as e:
+            print("Error :: Cannot fetch results !")
     if commit:
         conn.commit()
     conn.close()
