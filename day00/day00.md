@@ -42,12 +42,10 @@ Python 3.7.*
 ### Exercice 04 - Top_100
 ### Exercice 05 - Name_lang
 ### Exercice 06 - K-first
-### Exercice 07 - Devs
+### Exercice 07 - Seniors
 ### Exercice 08 - Battle_royale
 ### Exercice 09 - Benefits
 ### Exercice 10 - Rank
 ### Exercice 11 - Price_analysis
 ### Exercice 12 - Worldwide
 ### Exercice 13 - Sample
-### Exercice 14 - Administrate
-### Exercice 15 - Caching
