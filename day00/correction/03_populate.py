@@ -4,7 +4,7 @@
 
 import pandas as pd
 import psycopg2
-from correction.utils.utils import run_sql, get_connection
+from utils.utils import run_sql, get_connection, import_csv
 
 #############
 #   UTILS   #
@@ -21,13 +21,6 @@ def display_table(table: str):
     res = run_sql("SELECT * FROM {} LIMIT 10".format(table), fetch=True)
     for row in res:
         print(row)
-
-
-def import_csv(file):
-    print("\tImporting '{}'".format(file), end='')
-    df = pd.read_csv(file)
-    print(" Done !")
-    return (df)
 
 
 ##############################
@@ -143,6 +136,9 @@ def main():
     df = import_csv("appstore_games.normalized.csv")
     df_genres = import_csv("appstore_games_genres.normalized.csv")
     df_languages = import_csv("appstore_games_languages.normalized.csv")
+
+    if df is None or df_genres is None or df_languages is None:
+        return(None)
 
     print("DELETING TABLES ...")
 
