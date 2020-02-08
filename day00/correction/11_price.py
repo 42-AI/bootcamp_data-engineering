@@ -9,7 +9,7 @@ from utils.utils import run_sql
 
 
 def get_price():
-    res= run_sql("""
+    res = run_sql("""
                     SELECT Price, COUNT(Price)
                     FROM appstore_games
                     WHERE Price > 1
