@@ -45,7 +45,7 @@ Python 3.7.*
 ### Exercice 07 - Seniors
 ### Exercice 08 - Battle_royale
 ### Exercice 09 - Benefits
-### Exercice 10 - Rank
+### Exercice 10 - Sweet_spot
 ### Exercice 11 - Price_analysis
 ### Exercice 12 - Worldwide
 ### Exercice 13 - Sample
