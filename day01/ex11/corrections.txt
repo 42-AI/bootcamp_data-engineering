@@ -1,0 +1,38 @@
+{
+  "hits" : {
+    "total" : {
+      "value" : 3,
+      "relation" : "eq"
+    },
+    "max_score" : 10.494455,
+    "hits" : [
+      {
+        "_index" : "mbelalou_v1",
+        "_type" : "_doc",
+        "_id" : "upaxJXABX6qTQf1Uax6e",
+        "_score" : 10.494455,
+        "_source" : {
+          "Name" : "War Clash"
+        }
+      },
+      {
+        "_index" : "mbelalou_v1",
+        "_type" : "_doc",
+        "_id" : "TZaxJXABX6qTQf1UVxBr",
+        "_score" : 9.593001,
+        "_source" : {
+          "Name" : "Crusaders of Light"
+        }
+      },
+      {
+        "_index" : "mbelalou_v1",
+        "_type" : "_doc",
+        "_id" : "oJaxJXABX6qTQf1UbiEi",
+        "_score" : 8.498238,
+        "_source" : {
+          "Name" : "Hustle Strike - Bounce Action"
+        }
+      }
+    ]
+  }
+}
