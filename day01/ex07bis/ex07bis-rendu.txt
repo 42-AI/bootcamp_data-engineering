@@ -1,28 +1,28 @@
 GET appstore_game/_search?filter_path=hits
 {
-  "_source": ["Name"],  
-  "query": 
-  {
-    "bool": 
-    {
+  "_source": "Name",
+  "query": {
+    "bool": {
       "must": [
         {
-          "match": 
-          {
-            "Description": 
-            {
-              "query": "battle royale",
-              "operator": "and"
+          "match_phrase": {
+            "Description": {
+              "query": "vibrant world",
+              "slop": 5
             }
           }
         },
         {
-          "match": 
-          {
-            "Description" : "fb.com facebook.com"
+          "match": {
+            "Description": "facebook.com fb.com"
           }
         }
-      ]
+      ],
+      "filter": {
+        "match": {
+          "Primary Genre": "Games"
+        }
+      }
     }
   }
 }

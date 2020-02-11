@@ -1,38 +1,27 @@
-{
-  "hits" : {
+"hits" : {
     "total" : {
-      "value" : 3,
+      "value" : 2,
       "relation" : "eq"
     },
-    "max_score" : 10.494455,
+    "max_score" : 6.287657,
     "hits" : [
       {
-        "_index" : "mbelalou_v1",
+        "_index" : "appstore_games_2",
         "_type" : "_doc",
-        "_id" : "upaxJXABX6qTQf1Uax6e",
-        "_score" : 10.494455,
-        "_source" : {
-          "Name" : "War Clash"
-        }
-      },
-      {
-        "_index" : "mbelalou_v1",
-        "_type" : "_doc",
-        "_id" : "TZaxJXABX6qTQf1UVxBr",
-        "_score" : 9.593001,
+        "_id" : "4KduNXABL1NAa4oAxPuX",
+        "_score" : 6.287657,
         "_source" : {
           "Name" : "Crusaders of Light"
         }
       },
       {
-        "_index" : "mbelalou_v1",
+        "_index" : "appstore_games_2",
         "_type" : "_doc",
-        "_id" : "oJaxJXABX6qTQf1UbiEi",
-        "_score" : 8.498238,
+        "_id" : "dKduNXABL1NAa4oAm-Ve",
+        "_score" : 5.9455557,
         "_source" : {
-          "Name" : "Hustle Strike - Bounce Action"
+          "Name" : "SteamPower1830 Railroad Tycoon"
         }
       }
     ]
   }
-}
