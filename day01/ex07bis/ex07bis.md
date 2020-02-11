@@ -2,13 +2,11 @@
 
 |                         |                    |
 | -----------------------:| ------------------ |
-|   Turnin directory :    |  ex11              |
-|   Files to turn in :    |  ex11-rendu.txt    |
+|   Turnin directory :    |  ex07bis           |
+|   Files to turn in :    |  ex07bis-rendu.txt |
 |   Forbidden function :  |  None              |
 |   Remarks :             |                    |
 
 A little more of full text search:
 
-We're looking to build a query that return the `Name` of the game that have `battle royale` and `facebook.com or fb.com` in his Description field.
-
-(There isn't one good answer for this exercise, many answer are possible)
+There are two games who speak of a Vibrant World and have a link to facebook in their description. Find them !
