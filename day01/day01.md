@@ -30,18 +30,19 @@ If you wanna know how the magic works: <href src="https://www.elastic.co/elastic
 ## Helper 
 
 * Your best friend for the day: <href src="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html"><u><font color=blue>Elasticsearch documentation</font></u></href>
-* We recommand to use the /goinfre directory for this day as you will need ~3Go for the Elasticsearch cluster. But you are free to do as you whish. Note that using /sgonfre won't work.
+* We recommand to use the /goinfre directory for this day as you will need ~3Go for the Elasticsearch cluster. But you are free to do as you whish. Note that using /sgoinfre won't work.
 * Keep in mind that the /goinfre is a local & temporary directory. So if you change computer you will lose your work, if you log out you might lose your work.
 
 ### Exercice 00 - The setup.
 ### Exercice 01 - CRUDité.
 ### Exercice 02 - Your first Index Your first Mapping.
 ### Exercice 03 - Text Analyzer
-### Exercice 04 - Eat them all! (ingest with logstash)
-### Exercice 05 - Search
-### Exercice 06 - Aggregation
-### Exercice 07 - Kibana & Monitoring
-### Exercice 08 - Security
-### Exercice 09 - Troubleshooting
-### Exercice 10 - Expand the cluster!
+### Exercice 04 - Eat them all!
+### Exercice 05 - Search - Developers
+### Exercice 06 - Search - Name_lang
+### Exercice 07 - Search - Game
+### Exercice 07bis - Search - BattleRoyale Facebook
+### Exercice 08 - Aggregation
+### Exercice 09 - Aggregation in Aggregation
+### Exercice 10 - Kibana & Monitoring
 
