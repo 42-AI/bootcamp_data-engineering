@@ -25,7 +25,7 @@ With more than 26 million swipes daily, Tinder connects more people one-on-one a
 
 Hear how Tinder relies on the Elastic Stack to analyze, visualize, and predict not only a) which people a user will swipe right on, or b) which people will swipe right on that user, but c) when there’s a mutual swipe match. Tinder’s VP of Engineering will describe how the service is growing into a global platform for social discovery in many facets of life.
 </p>
-If you wanna know how the magic works: <href src="https://www.elastic.co/elasticon/conf/2017/sf/tinder-using-the-elastic-stack-to-make-connections-around-the-world"><u><font color=blue>click here</font></u></href>
+If you wanna know how the magic works: <href src="https://www.elastic.co/elasticon/conf/2017/sf/tinder-using-the-elastic-stack-to-make-connections-around-the-world"><u><font color=blue>https://www.elastic.co/elasticon/conf/2017/sf/tinder-using-the-elastic-stack-to-make-connections-around-the-world</font></u></href>
 
 ## Helper 
 
