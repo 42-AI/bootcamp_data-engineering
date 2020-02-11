@@ -1,4 +1,4 @@
-# Exercise 11 - Search - battle royale / Facebook
+# Exercise 07-bis - Search - battle royale / Facebook
 
 |                         |                    |
 | -----------------------:| ------------------ |
@@ -7,7 +7,7 @@
 |   Forbidden function :  |  None              |
 |   Remarks :             |                    |
 
-Elasticsearch was initially designed for full text search, so let's try this.
+A little more of full text search:
 
 We're looking to build a query that return the `Name` of the game that have `battle royale` and `facebook.com or fb.com` in his Description field.
 
