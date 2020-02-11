@@ -15,10 +15,6 @@ PUT appstore_game
       {
         "enabled" : false
       },
-      "Age_rating" : 
-      {
-        "type" : "integer"
-      },
       "Average User Rating" : 
       {
         "type" : "float"
@@ -35,7 +31,13 @@ PUT appstore_game
       },
       "Developer" : 
       {
-      "type" : "keyword"
+		"type" : "text",
+        "fields" : {
+          "keyword" : {
+            "type" : "keyword",
+            "ignore_above" : 256
+          }
+        }
       },
       "ID" : 
       {
@@ -43,7 +45,7 @@ PUT appstore_game
       },
       "Icon URL" : 
       {
-        "enabled" : false
+        "type" : "keyword"
       },
       "Name" : 
       {
@@ -73,7 +75,7 @@ PUT appstore_game
       },
       "URL" : 
       {
-        "enabled" : false
+        "type" : "keyword"
       },
       "User Rating Count" : 
       {
