@@ -49,9 +49,11 @@ GET twitter/_search
 
 ## UPDATE
 
-PUT twitter/_doc/1
+PUT twitter/_update/1
 {
-    "message" : "Trying update document"
+	"doc": {
+		"message" : "Trying update document"
+	}
 }
 
 ## DELETE
