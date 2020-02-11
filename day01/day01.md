@@ -7,7 +7,9 @@ Wait.. Elasticsearch is a database ? Well not exactly it is more than that. It i
 
 ## Notions of the day
 
-Create an Elasticsearch cluster, create index and mappings, ingest document, search & aggregate, create visual with Kibana
+Create an Elasticsearch cluster, create index and mappings, ingest document, search & aggregate, create visual with Kibana.  
+
+In the first part of this day (ex00 to ex03) you will learn the basics of Elasticsearch. Then you will apply this to a real dataset.
 
 ## General rules
 
