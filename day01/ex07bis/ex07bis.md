@@ -1,4 +1,4 @@
-# Exercise 07-bis - Search - battle royale / Facebook
+# Exercise 07-bis - Search - Vibrant World
 
 |                         |                    |
 | -----------------------:| ------------------ |
