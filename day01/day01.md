@@ -21,7 +21,7 @@ In the first part of this day (ex00 to ex03) you will learn the basics of Elasti
 
 ## Foreword
 
-Did you know that Elasticsearch helps you find your soulmate (or ONS...) ?
+Did you know that Elasticsearch helps you find your soulmate ?
 <p>
 With more than 26 million swipes daily, Tinder connects more people one-on-one and in real time than any other mobile app in the world. Behind the minimalist UI and elegant “swipe right, swipe left” that Tinder pioneered are tremendous challenges of data science, machine learning, and global scalability.
 
@@ -43,7 +43,7 @@ If you wanna know how the magic works: <href src="https://www.elastic.co/elastic
 ### Exercice 05 - Search - Developers
 ### Exercice 06 - Search - Name_lang
 ### Exercice 07 - Search - Game
-### Exercice 07bis - Search - BattleRoyale Facebook
+### Exercice 07bis - Search - Vibrant World
 ### Exercice 08 - Aggregation
 ### Exercice 09 - Aggregation in Aggregation
 ### Exercice 10 - Kibana & Monitoring
