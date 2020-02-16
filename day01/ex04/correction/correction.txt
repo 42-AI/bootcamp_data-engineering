@@ -1,1 +1,0 @@
-Run `GET _cat/indices` in Kibana and chak there 17008 documents in the appstore_game index
