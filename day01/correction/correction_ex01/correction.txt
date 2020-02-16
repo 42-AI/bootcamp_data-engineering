@@ -1,0 +1,67 @@
+1 - Run the ./create-doc.sh file
+You should a response from the cluster as follow: (id might be different)
+{
+  "_index" : "twitter",
+  "_type" : "_doc",
+  "_id" : "V_CNj28BAAu_Qa2cERlN",
+  "_version" : 1,
+  "result" : "created",
+  "_shards" : {
+    "total" : 2,
+    "successful" : 1,
+    "failed" : 0
+  },
+  "_seq_no" : 0,
+  "_primary_term" : 1
+}
+{
+  "_index" : "twitter",
+  "_type" : "_doc",
+  "_id" : "WPCNj28BAAu_Qa2cEhnU",
+  "_version" : 1,
+  "result" : "created",
+  "_shards" : {
+    "total" : 2,
+    "successful" : 1,
+    "failed" : 0
+  },
+  "_seq_no" : 1,
+  "_primary_term" : 1
+}
+
+2 - Ask the student to start Kibana 
+3 - Copy the content of ex01-rendu.txt and paste it into Kibana dev tool
+4 - Run the two command for the 'CREATE' part in Kibana and check that the document is well created (similar response as question 1)
+6 - Run the commands for the 'READ' part and for each check that you get the same number of hits as ask in the subject
+7 - Run the command for the 'UPDATE' part. You should have a similar answer to this:
+{
+  "_index" : "twitter",
+  "_type" : "_doc",
+  "_id" : "1",
+  "_version" : 2,
+  "result" : "updated",
+  "_shards" : {
+    "total" : 2,
+    "successful" : 1,
+    "failed" : 0
+  },
+  "_seq_no" : 4,
+  "_primary_term" : 1
+}
+Check that "_version" is 2
+Run `GET twitter/_doc/1` and check the content of the message is as asked in the subject
+
+8 - Run the following command in Kibana:
+POST _bulk
+{"index": {"_index": "test_delete", "_id":1}}
+{"name": "clark kent", "aka": "superman"}
+{"index": {"_index": "test_delete"}}
+{"name": "louis XV", "aka": "le bien aimé"}
+Then run the first command of the 'DELETE' part. Check that the document with id 1 is well deleted by running `GET twitter/_doc/1`. You should get:
+{
+  "_index" : "test_delete",
+  "_type" : "_doc",
+  "_id" : "1",
+  "found" : false
+}
+Then run the second command in the 'DELETE' part and check the index 'test_delete' no longer exists in the cluster: `GET _cat/indices?v`

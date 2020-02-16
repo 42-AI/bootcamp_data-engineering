@@ -1,0 +1,27 @@
+"hits" : {
+    "total" : {
+      "value" : 2,
+      "relation" : "eq"
+    },
+    "max_score" : 6.287657,
+    "hits" : [
+      {
+        "_index" : "appstore_games_2",
+        "_type" : "_doc",
+        "_id" : "4KduNXABL1NAa4oAxPuX",
+        "_score" : 6.287657,
+        "_source" : {
+          "Name" : "Crusaders of Light"
+        }
+      },
+      {
+        "_index" : "appstore_games_2",
+        "_type" : "_doc",
+        "_id" : "dKduNXABL1NAa4oAm-Ve",
+        "_score" : 5.9455557,
+        "_source" : {
+          "Name" : "SteamPower1830 Railroad Tycoon"
+        }
+      }
+    ]
+  }

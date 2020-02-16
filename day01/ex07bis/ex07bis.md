@@ -9,7 +9,7 @@
 
 A little more of full text search:
 
-There are two games who speak of a Vibrant World and have a link to facebook in their description. Find them !
+There are two games who speak of a Vibrant World and have a link to facebook.com (or fb.com) in their description. Find them !
 
 Hint: the distance between the word "vibrant" and "world" longer than a few words...
 

@@ -1,0 +1,31 @@
+GET appstore_game/_search
+{
+  "_source": ["Developer", "Original Release Date", "Current Version Release Date"],
+  "query":
+  {
+    "bool":
+    {
+      "must":
+      [
+        {
+          "range":
+          {
+            "Original Release Date":
+            {
+              "lte": "01/08/2008"
+            }
+          }
+        },
+        {
+          "range":
+          {
+            "Current Version Release Date":
+            {
+              "gte": "01/01/2018"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
