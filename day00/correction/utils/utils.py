@@ -6,6 +6,33 @@ import psycopg2
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 import pandas as pd
 
+import logging
+
+# create logger
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+ch = logging.StreamHandler()
+ch.setLevel(logging.INFO)
+formatter = logging.Formatter("%(asctime)s :: %(levelname)s :: %(message)s",
+                              "%Y-%m-%d %H:%M:%S")
+ch.setFormatter(formatter)
+logger.addHandler(ch)
+
+def run_task(desc=None, oneline=True):
+    def run_task_decorator(func):
+        task_desc = desc
+        def wrapper_func(*args, **kwargs):
+            if not oneline:
+                logger.info("{} started.".format(task_desc.format(*args)))
+            try:
+                res = func(*args, **kwargs)
+                logger.info("{} Done !".format(task_desc.format(*args)))
+                return(res)
+            except Exception as e:
+                logger.info("{} Exception Detected !\n{}".format(task_desc, e))
+        return wrapper_func
+    return run_task_decorator
+
 def get_connection(
         user="postgres_user",
         db="appstore_games",

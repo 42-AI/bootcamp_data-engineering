@@ -8,8 +8,9 @@ import matplotlib.pyplot as plt
 from utils.utils import run_sql
 
 
+@run_task("Ex11 Price", oneline=False)
 def get_price():
-    res = run_sql("""
+    res= run_sql("""
                     SELECT Price, COUNT(Price)
                     FROM appstore_games
                     WHERE Price > 1

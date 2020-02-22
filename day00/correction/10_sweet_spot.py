@@ -5,6 +5,7 @@
 from utils.utils import run_sql
 
 
+@run_task("Ex10 Sweet_spot", oneline=False)
 def get_sweet_spot():
     res = run_sql("""
         SELECT MAX(month)

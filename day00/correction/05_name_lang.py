@@ -5,6 +5,7 @@
 from utils.utils import run_sql
 
 
+@run_task("Ex05 Name_lang", oneline=False)
 def get_name_lang():
     res = run_sql("""
             SELECT Name, Language

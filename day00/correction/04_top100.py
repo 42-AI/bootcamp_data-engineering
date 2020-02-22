@@ -5,6 +5,7 @@
 from utils.utils import run_sql
 
 
+@run_task("Ex04 Top 100", oneline=False)
 def get_top_100():
     res = run_sql("""
             SELECT Name, Avg_user_rating

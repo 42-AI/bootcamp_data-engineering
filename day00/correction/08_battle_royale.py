@@ -5,6 +5,7 @@
 from utils.utils import run_sql
 
 
+@run_task("Ex08 Battle_royale", oneline=False)
 def get_battle_royale():
     res = run_sql("""
                     SELECT Name, Description

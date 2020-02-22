@@ -6,6 +6,7 @@ import math
 from utils.utils import run_sql
 
 
+@run_task("Get sample size")
 def get_sample_size(
         population,
         confidence=.95,
@@ -24,7 +25,7 @@ def get_sample_size(
     den = 1 + (((z ** 2) * (p * (1 - p))) / ((error_margin ** 2) * population))
     return(math.ceil(num / den))
 
-
+@run_task("Ex13 Sample", oneline=False)
 def sample():
     res = run_sql("""
                 SELECT *
@@ -47,4 +48,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
