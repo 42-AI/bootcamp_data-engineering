@@ -3,8 +3,8 @@
 ###################
 
 
+import pandas as pd
 import re
-from utils.utils import import_csv
 
 
 def df_nan_filter(df):
@@ -42,8 +42,11 @@ def string_filter(s: str):
       This function shouldn't raise any Exception.
     """
     # filter : \\t, \\n, \\U1a1b2c3d4, \\u1a2b, \\x1a
-    s = re.sub(r'\\+(t|n|U[a-z0-9]{8}|u[a-z0-9]{4}|x[a-z0-9]{2})', ' ', s)
-    s = re.sub(r'[\\\""]+', '', s)
+    # turn \' into '
+    # remove remaining \\
+    # turn multiple spaces into one space
+    s = re.sub(r'''\\+(t|n|U[a-z0-9]{8}|u[a-z0-9]{4}|x[a-z0-9]{2}|[\.]{2})''', ' ', s)
+    s = s.replace('\\\'', '\'').replace('\\\\', '\\')
     s = re.sub(r' +', ' ', s)
     return (s)
 
@@ -61,10 +64,9 @@ def change_date_format(date: str):
     return (tmp[2]+"-"+tmp[1]+"-"+tmp[0])
 
 
+@run_task("Cleaning csv", oneline=False)
 def main():
-    df = import_csv("appstore_games.csv")
-    if df is None:
-        return(None)
+    df = pd.read_csv("appstore_games.csv")
 
     # selecting columns
     df = (
@@ -76,6 +78,7 @@ def main():
     )
     # apply nan_filter
     df = df_nan_filter(df)
+    #print(df.head(50))
 
     # apply string_filter
     df["Name"] = df["Name"].apply(lambda x: string_filter(x))

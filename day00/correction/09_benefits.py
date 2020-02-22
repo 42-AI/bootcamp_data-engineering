@@ -2,9 +2,10 @@
 #   Ex09: Benefits   #
 ######################
 
-from utils.utils import run_sql
+from correction.utils.utils import run_sql
 
 
+@run_task("Ex09 Benefits", oneline=False)
 def get_benefits():
     res = run_sql("""
                     SELECT Name

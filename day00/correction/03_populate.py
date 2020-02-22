@@ -4,17 +4,16 @@
 
 import pandas as pd
 import psycopg2
-from utils.utils import run_sql, get_connection, import_csv
+from utils.utils import run_sql, get_connection
 
 #############
 #   UTILS   #
 #############
 
 
+@run_task("Deleting table '{0}'")
 def delete_table(table: str):
-    print("\tDeleting table '{}'".format(table), end='')
     run_sql("DROP TABLE IF EXISTS {};".format(table), commit=True)
-    print(' Done !')
 
 
 def display_table(table: str):
@@ -23,14 +22,20 @@ def display_table(table: str):
         print(row)
 
 
+@run_task("Importing csv '{0}'")
+def import_csv(file):
+    df = pd.read_csv(file)
+    return (df)
+
+
 ##############################
 #   CREATE TABLE FUNCTIONS   #
 ##############################
 
+
+@run_task("Creating table '{0}'")
 def create_table(table, query):
-    print("\tCreating table '{}' ...".format(table), end='')
     run_sql(query.format(table), commit=True)
-    print(' Done !')
 
 
 def create_table_appstore_games():
@@ -77,8 +82,8 @@ def create_table_appstore_games_genres():
 ##########################
 
 
+@run_task("Populating table '{0}'", oneline=False)
 def populate_table(table, query, df, index=False):
-    print("\tPopulating table '{}' ...".format(table), end='')
     conn = get_connection()
     curr = conn.cursor()
     df_rows = list(df.itertuples(index=index))
@@ -86,7 +91,6 @@ def populate_table(table, query, df, index=False):
     curr.execute(query.format(table) + args_str.decode())
     conn.commit()
     conn.close()
-    print(' Done !')
 
 
 def populate_appstore_games(df):
@@ -131,34 +135,21 @@ def populate_appstore_games_languages(df_languages):
 
 
 def main():
-    print("IMPORTING CSVS ...")
-
     df = import_csv("appstore_games.normalized.csv")
     df_genres = import_csv("appstore_games_genres.normalized.csv")
     df_languages = import_csv("appstore_games_languages.normalized.csv")
-
-    if df is None or df_genres is None or df_languages is None:
-        return(None)
-
-    print("DELETING TABLES ...")
 
     delete_table("appstore_games_genres")
     delete_table("appstore_games_languages")
     delete_table("appstore_games")
 
-    print("CREATING TABLES ...")
-
     create_table_appstore_games()
     create_table_appstore_games_genres()
     create_table_appstore_games_languages()
 
-    print("POPULATING TABLES ...")
-
     populate_appstore_games(df)
     populate_appstore_games_genres(df_genres)
     populate_appstore_games_languages(df_languages)
-
-    print('ALL DONE !')
 
 
 if __name__ == "__main__":

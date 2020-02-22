@@ -5,6 +5,7 @@
 from utils.utils import run_sql
 
 
+@run_task("Ex12 Worldwide", oneline=False)
 def get_worldwide():
     res = run_sql("""
                 SELECT Genre, COUNT(appstore_games_genres.Game_Id)

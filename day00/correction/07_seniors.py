@@ -5,6 +5,7 @@
 from utils.utils import run_sql
 
 
+@run_task("Ex07 Seniors", oneline=False)
 def get_seniors():
     res = run_sql("""
                     SELECT Developer
