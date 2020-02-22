@@ -43,7 +43,7 @@ def string_filter(s: str):
     """
     # filter : \\t, \\n, \\U1a1b2c3d4, \\u1a2b, \\x1a
     # turn \' into '
-    # remove remaining \\
+    # replace remaining \\ with \
     # turn multiple spaces into one space
     s = re.sub(r'''\\+(t|n|U[a-z0-9]{8}|u[a-z0-9]{4}|x[a-z0-9]{2}|[\.]{2})''', ' ', s)
     s = s.replace('\\\'', '\'').replace('\\\\', '\\')
