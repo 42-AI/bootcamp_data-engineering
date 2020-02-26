@@ -1,3 +1,11 @@
+---
+colorlinks: true
+urlcolor: "blue"
+---
+---
+colorlinks: true
+urlcolor: "blue"
+---
 # Psycopg2 basics
 
 Psycopg is a very popular PostgreSQL database adapter for the Python programming language. It's full documentation can be seen [here](https://pypi.org/project/psycopg2/).
