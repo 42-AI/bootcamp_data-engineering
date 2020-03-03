@@ -6,7 +6,7 @@ Today, you will learn how to use a SQL database: PostgreSQL.
 
 ## Notions of the day
 
-The purpose of the day is first to create, administrate and normalize a PostgreSQL Database. Then, we are going to analyse the data and visualize the content of the database. Finally, we will see advanced notions like caching, replication and backups.
+The purpose of the day is at first to create, administrate and normalize a PostgreSQL Database. Then, we are going to analyse the data and visualize the content of the database. Finally, we will see advanced notions like caching, replication and backups.
 
 ## General rules
 
