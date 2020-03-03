@@ -1,14 +1,6 @@
----
-colorlinks: true
-urlcolor: "blue"
----
----
-colorlinks: true
-urlcolor: "blue"
----
 # Psycopg2 basics
 
-Psycopg is a very popular PostgreSQL database adapter for the Python programming language. It's full documentation can be seen [here](https://pypi.org/project/psycopg2/).
+Psycopg is a very popular PostgreSQL database adapter for the Python programming language. Its full documentation can be seen **[here](https://pypi.org/project/psycopg2/)**.
 
 The function `connect()` creates a new database session and returns a new connection instance.
 ```python
@@ -45,7 +37,7 @@ It's also possible to remove a table.
 curr.execute("DROP TABLE members")
 ```
 
-To make changes persistent in the database, we need to commit (queries are called transactions). Finally we can close the  connection.
+To make changes persistent in the database, we need to commit (queries are called transactions). Finally, we can close the connection.
 ```python
 conn.commit()
 conn.close()
@@ -81,7 +73,7 @@ if __name__ == "__main__":
 
 ## Inserting data
 
-Data can be inserted into a table with the following synthax.
+Data can be inserted into a table with the following syntax.
 ```python
 curr.execute("""
             INSERT INTO members(firstname, lastname, birthdate) VALUES
@@ -92,7 +84,7 @@ curr.execute("""
 
 ## Delete data
 
-Data can alo be deleted.  
+Data can also be deleted.  
 ```python
 curr.execute("""DELETE FROM members 
                 WHERE lastname LIKE 'Clapton'
@@ -129,7 +121,7 @@ def display_table(table: str):
     conn.close()
 ```
 
-## Create table
+## Create a table
 
 ```python
 def create_table():
@@ -155,7 +147,7 @@ def delete_table(table: str):
     conn.close()
 ```
 
-## Inserting data into table
+## Inserting data into a table
 
 ```python
 def populate_table():
