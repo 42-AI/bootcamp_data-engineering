@@ -1,0 +1,5 @@
+1- Copy the query from ex05-rendu.txt into Kibana and run the request.  
+
+Check the "Primary Genre" of the top hits (at least top 5) is game.
+Then check that the result is somehow relevant to what the user is searching : 
+"I'm looking for a game. I'm a big fan of starcraft and I like real time strategy. Can you write a query to find me a game (and I will only accept game) ?"

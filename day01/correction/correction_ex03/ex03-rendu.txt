@@ -1,0 +1,56 @@
+POST school/_doc
+{
+  "school": "42",
+  "text" : "42 is a school where you write a lot of programs"
+}
+
+POST school/_doc
+{
+  "school": "ICART",
+  "text" : "The school of art management and art market management"
+}
+
+GET school/_mapping
+
+PUT school_bis
+{
+  "mappings" : {
+      "properties" : {
+        "school" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "text" : {
+          "type" : "text",
+          "analyzer": "english"
+        }
+      }
+    }
+}
+
+POST school_bis/_doc
+{
+  "school": "42",
+  "text" : "42 is a school where you write a lot of programs"
+}
+
+POST school_bis/_doc
+{
+  "school": "ICART",
+  "text" : "The school of art management and art market management"
+}
+
+GET school_bis/_search
+{
+  "query":
+  {
+     "match": {
+       "text": "programming"
+     }
+  }
+}
