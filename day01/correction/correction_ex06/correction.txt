@@ -1,0 +1,3 @@
+1- Copy the query from ex06-rendu.txt into Kibana and run the request.  
+
+You should get 192 hits.

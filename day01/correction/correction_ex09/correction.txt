@@ -1,0 +1,52 @@
+1- Copy the query from ex09-rendu.txt into Kibana and run the request.  
+
+You should get:
+
+"aggregations" : {
+    "dev" : {
+      "doc_count_error_upper_bound" : 0,
+      "sum_other_doc_count" : 16252,
+      "buckets" : [
+        {
+          "key" : """Tapps Tecnologia da Informa\xe7\xe3o Ltda.""",
+          "doc_count" : 123
+        },
+        {
+          "key" : "Vikash Patel",
+          "doc_count" : 107
+        },
+        {
+          "key" : "Netsummit Marketing, Inc.",
+          "doc_count" : 95
+        },
+        {
+          "key" : "GabySoft",
+          "doc_count" : 85
+        },
+        {
+          "key" : "NetSummit Enterprises, Inc.",
+          "doc_count" : 77
+        },
+        {
+          "key" : "Andrew Kudrin",
+          "doc_count" : 62
+        },
+        {
+          "key" : "MmpApps Corp.",
+          "doc_count" : 61
+        },
+        {
+          "key" : "Domyung Kim",
+          "doc_count" : 57
+        },
+        {
+          "key" : "Amy Prizer",
+          "doc_count" : 46
+        },
+        {
+          "key" : "Detention Apps",
+          "doc_count" : 42
+        }
+      ]
+    }
+  }
