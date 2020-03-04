@@ -1,0 +1,69 @@
+## CREATE
+
+POST twitter/_doc/
+{
+    "user" : "mimich",
+    "post_date" : "31 12 2015",
+    "message" : "Trying out Kibana"
+}
+
+POST twitter/_doc/
+{
+    "user" : "jean mimich",
+    "post_date" : "01 01 2016",
+    "message" : "Trying something else"
+}
+
+
+## READ
+
+GET twitter/_search
+
+GET twitter/_search
+{
+  "query": {
+    "match": {
+      "user.keyword": "popol"
+    }
+  }
+}
+
+GET twitter/_search
+{
+  "query": {
+    "match": {
+      "message": "elasticsearch"
+    }
+  }
+}
+
+GET twitter/_search
+{
+  "query": {
+    "match": {
+      "user.keyword": "mimich"
+    }
+  }
+}
+
+
+## UPDATE
+
+PUT twitter/_update/1
+{
+	"doc": {
+		"message" : "Trying update document"
+	}
+}
+
+## DELETE
+
+POST _bulk
+{"index": {"_index": "test_delete", "_id":1}}
+{"name": "clark kent", "aka": "superman"}
+{"index": {"_index": "test_delete"}}
+{"name": "louis XV", "aka": "le bien aimé"}
+
+DELETE test_delete/_doc/1
+
+DELETE test_delete
