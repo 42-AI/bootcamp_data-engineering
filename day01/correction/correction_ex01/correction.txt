@@ -33,23 +33,7 @@ You should a response from the cluster as follow: (id might be different)
 3 - Copy the content of ex01-rendu.txt and paste it into Kibana dev tool
 4 - Run the two command for the 'CREATE' part in Kibana and check that the document is well created (similar response as question 1)
 6 - Run the commands for the 'READ' part and for each check that you get the same number of hits as ask in the subject
-7 - Run the command for the 'UPDATE' part. You should have a similar answer to this:
-{
-  "_index" : "twitter",
-  "_type" : "_doc",
-  "_id" : "1",
-  "_version" : 2,
-  "result" : "updated",
-  "_shards" : {
-    "total" : 2,
-    "successful" : 1,
-    "failed" : 0
-  },
-  "_seq_no" : 4,
-  "_primary_term" : 1
-}
-Check that "_version" is 2
-Run `GET twitter/_doc/1` and check the content of the message is as asked in the subject
+7 - Run the command for the 'UPDATE' part. Then run `GET twitter/_doc/1` and check the content of the message is as asked in the subject and that no other field has changed (ie "user" and "post_date" field shall have the same value as when created)
 
 8 - Run the following command in Kibana:
 POST _bulk
