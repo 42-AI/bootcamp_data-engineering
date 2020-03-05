@@ -35,15 +35,15 @@ If you wanna know how the magic works: **[elastic tinder](https://www.elastic.co
 * We recommend using the `/goinfre` directory for this day as you will need ~3Go for the Elasticsearch cluster. But you are free to do as you wish. Note that using `/sgoinfre` won't work.
 * Keep in mind that the `/goinfre` is a local & temporary directory. So if you change computer you will lose your work, if you log out you might lose your work.
 
-### Exercice 00 - The setup.
-### Exercice 01 - CRUDité.
-### Exercice 02 - Your first Index Your first Mapping.
-### Exercice 03 - Text Analyzer
-### Exercice 04 - Eat them all!
-### Exercice 05 - Search - Developers
-### Exercice 06 - Search - Name_lang
-### Exercice 07 - Search - Game
-### Exercice 07bis - Search - Vibrant World
-### Exercice 08 - Aggregation
-### Exercice 09 - Aggregation in Aggregation
-### Exercice 10 - Kibana & Monitoring
+### Exercise 00 - The setup.
+### Exercise 01 - CRUDité.
+### Exercise 02 - Your first Index Your first Mapping.
+### Exercise 03 - Text Analyzer
+### Exercise 04 - Eat them all!
+### Exercise 05 - Search - Developers
+### Exercise 06 - Search - Name_lang
+### Exercise 07 - Search - Game
+### Exercise 07bis - Search - Vibrant World
+### Exercise 08 - Aggregation
+### Exercise 09 - Aggregation in Aggregation
+### Exercise 10 - Kibana & Monitoring
