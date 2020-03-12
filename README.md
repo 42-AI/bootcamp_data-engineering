@@ -2,8 +2,6 @@
   <img src="assets/logo_v4_noir.png" width="200" alt="42 AI Logo" />
 </p>
 
-![42AI logo](assets/logo_v4_noir.png){ width=200px }
-
 <h1 align="center">
   Bootcamp Data Engineering
 </h1>
