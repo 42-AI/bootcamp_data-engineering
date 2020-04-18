@@ -103,5 +103,8 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-# MacOs
+# MACOS stuff
 *.DS_STORE
+
+# TMP files
+*.swp
