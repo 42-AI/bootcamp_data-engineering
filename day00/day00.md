@@ -15,7 +15,7 @@ The purpose of the day is at first to create, administrate and normalize a Postg
 * The exercises are ordered from the easiest to the hardest.
 * Your exercises are going to be evaluated by someone else so make sure that variables and functions names are appropriated.
 * Your man is the internet.
-* You can also ask any question in the dedicated channel in Slack: **[42ai slack](42-ai.slack.com)**.
+* You can also ask any question in the dedicated channel in Slack: **[42ai slack](https://42-ai.slack.com)**.
 * If you find any issue or mistakes in the subject please create an issue on our dedicated repository on **[Github issues](https://github.com/42-AI/bootcamp_data-engineering/issues")**.
 
 ## Foreword
@@ -29,19 +29,6 @@ new data organization is called a [Data Lake](https://medium.com/rock-your-data/
 - catalog and search engine associated
 
 To do that SQL is often used to filter, join, select the data. Today you will discover an open-source SQL language, PostgreSQL.
-
-## Helper
-
-Ensure that you have the right Python version and psycopg2 installed.
-
-```
-$> which python
-/goinfre/miniconda/bin/python
-$> python -V
-Python 3.7.*
-$> which pip
-/goinfre/miniconda/bin/pip
-```
 
 ### Exercise 00 - Setup
 ### Exercise 01 - Clean
