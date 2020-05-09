@@ -1,6 +1,6 @@
 # Bootcamp Data Engineering
 
-# Day01 - NoSQL with Elasticsearch
+# Day01 - Elasticsearch, Logstash, Kibana
 
 Today, you will learn how to use a NoSQL database: Elasticsearch.
 Wait... Elasticsearch is a database? Well, not exactly it is more than that. It is defined as a search and analytics engine. But let's keep it simple for now, consider it as a database, we will see the rest later.
@@ -16,7 +16,7 @@ In the first part of this day (ex00 to ex03) you will learn the basics of Elasti
 * The exercises are ordered from the easiest to the hardest.
 * Your exercises are going to be evaluated by someone else, so make sure that your variable names and function names are appropriate and civil. 
 * Your manual is the internet.
-* You can also ask questions in the dedicated channel in the 42 AI Slack: 42-ai.slack.com.
+* You can also ask questions in the dedicated channel in the 42 AI Slack: **[42ai slack](42-ai.slack.com)**.
 * If you find any issue or mistakes in the subject please create an issue on our dedicated repository on Github:  **[Github issues](https://github.com/42-AI/bootcamp_data-engineering/issues)**.
 
 ## Foreword
