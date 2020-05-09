@@ -4,7 +4,7 @@
 
 Today, you will learn how to use Amazon Web Services. It has become the most popular cloud service provider in the world followed by Google Cloud Platform and Microsoft's Azure.
 
-Amazon Web Services started in 2005 ad now has nearly 2000 services. Do to the large amount of services and the maturity of AWS, it is a better option to start learning to use the Cloud. 
+Amazon Web Services started in 2005 and it now delivers nearly 2000 services. Due to the large number of services and the maturity of AWS, it is a better option to start learning cloud computing.
 
 If you never heard about the Cloud, do not worry! We will go step by step to learn what the cloud is and how to use it.
 
