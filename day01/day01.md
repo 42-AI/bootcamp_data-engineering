@@ -1,6 +1,6 @@
 # Bootcamp Data Engineering
 
-# Day01 - NoSQL with Elasticsearch
+# Day01 - Elasticsearch, Logstash, Kibana
 
 Today, you will learn how to use a NoSQL database: Elasticsearch.
 Wait... Elasticsearch is a database? Well, not exactly it is more than that. It is defined as a search and analytics engine. But let's keep it simple for now, consider it as a database, we will see the rest later.
