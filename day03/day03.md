@@ -2,7 +2,7 @@
 
 # Day03 - Amazon Web Services
 
-Today, you will learn how to use Amazon Web Services. It is to this day, the main Cloud provider followed by Google cloud platform and Azure (for microsoft).
+Today, you will learn how to use Amazon Web Services. It has become the most popular cloud service provider in the world followed by Google Cloud Platform and Microsoft's Azure.
 
 Amazon Web Services started in 2005 ad now has nearly 2000 services. Do to the large amount of services and the maturity of AWS, it is a better option to start learning to use the Cloud. 
 
