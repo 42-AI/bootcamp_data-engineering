@@ -1,6 +1,6 @@
 # Bootcamp Data Engineering
 
-# Day03 - Amazon Web Service
+# Day03 - Amazon Web Services
 
 Today, you will learn how to use Amazon Web Services. It is to this day, the main Cloud provider followed by Google cloud platform and Azure (for microsoft).
 
@@ -33,4 +33,3 @@ If you never heard about the Cloud, do not worry! We will go step by step to lea
 * Your best friend for the day: **[AWS documentation](https://docs.aws.amazon.com/index.html)** and **[Terraform documentation](https://www.terraform.io/docs/index.html)**.
 
 ### Exercise 00 - AWS setup.
-
