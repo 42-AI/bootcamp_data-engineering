@@ -30,6 +30,6 @@ If you never heard about the Cloud, do not worry! We will go step by step to lea
 
 ## Helper 
 
-* Your best friend for the day: **[AWS documentation](https://docs.aws.amazon.com/index.html)** and **[Terraform documentation](https://www.terraform.io/docs/index.html)**.
+* Your best friends for the day: **[AWS documentation](https://docs.aws.amazon.com/index.html)** and **[Terraform documentation](https://www.terraform.io/docs/index.html)**.
 
 ### Exercise 00 - AWS setup.
