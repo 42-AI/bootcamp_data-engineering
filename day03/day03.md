@@ -12,7 +12,7 @@ If you never heard about the Cloud before, do not worry! You will learn step by 
 
 Create an AWS account, set up a billing alarm.
 
-The day will be divided into two parts. In the first part will learn to use a tool called terraform which will allows us to deploy/destruct an AWS infrastructure. In the second part of the day, you will learn to use a software development kit (SDK) which will allows to use python to interact with AWS.
+The day will be divided into two parts. In the first one, you will learn to use a tool called Terraform which will allow you to deploy/destruct an AWS infrastructure. In the second part of the day, you will learn to use a software development kit (SDK) which will allow you to use Python in order to interact with AWS.
 
 ## General rules
 
