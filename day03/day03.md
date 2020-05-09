@@ -6,7 +6,7 @@ Today, you will learn how to use Amazon Web Services. It has become the most pop
 
 Amazon Web Services started in 2005 and it now delivers nearly 2000 services. Due to the large number of services and the maturity of AWS, it is a better option to start learning cloud computing.
 
-If you never heard about the Cloud, do not worry! We will go step by step to learn what the cloud is and how to use it.
+If you never heard about the Cloud before, do not worry! You will learn step by step what the Cloud is and how to use it.
 
 ## Notions of the day
 
