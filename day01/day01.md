@@ -16,7 +16,7 @@ In the first part of this day (ex00 to ex03) you will learn the basics of Elasti
 * The exercises are ordered from the easiest to the hardest.
 * Your exercises are going to be evaluated by someone else, so make sure that your variable names and function names are appropriate and civil. 
 * Your manual is the internet.
-* You can also ask questions in the dedicated channel in the 42 AI Slack: **[42ai slack](42-ai.slack.com)**.
+* You can also ask any question in the dedicated channel in Slack: **[42ai slack](https://42-ai.slack.com)**.
 * If you find any issue or mistakes in the subject please create an issue on our dedicated repository on Github:  **[Github issues](https://github.com/42-AI/bootcamp_data-engineering/issues)**.
 
 ## Foreword

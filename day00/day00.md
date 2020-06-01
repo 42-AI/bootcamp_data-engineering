@@ -30,19 +30,6 @@ new data organization is called a [Data Lake](https://medium.com/rock-your-data/
 
 To do that SQL is often used to filter, join, select the data. Today you will discover an open-source SQL language, PostgreSQL.
 
-## Helper
-
-Ensure that you have the right Python version and psycopg2 installed.
-
-```
-$> which python
-/goinfre/miniconda/bin/python
-$> python -V
-Python 3.7.*
-$> which pip
-/goinfre/miniconda/bin/pip
-```
-
 ### Exercise 00 - Setup
 ### Exercise 01 - Clean
 ### Exercise 02 - Normalize
