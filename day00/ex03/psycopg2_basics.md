@@ -3,6 +3,7 @@
 Psycopg is a very popular PostgreSQL database adapter for the Python programming language. Its full documentation can be seen **[here](https://pypi.org/project/psycopg2/)**.
 
 The function `connect()` creates a new database session and returns a new connection instance.
+
 ```python
 import psycopg2
 
@@ -17,11 +18,13 @@ def get_connection():
 ```
 
 Cursors allows Python code to execute PostgreSQL command in a database session.
+
 ```python
 curr = conn.cursor()
 ```
 
 Tables can be created with the cursor.
+
 ```python
 curr.execute("""CREATE TABLE members (
                     id serial PRIMARY KEY,
@@ -33,11 +36,13 @@ curr.execute("""CREATE TABLE members (
 ```
 
 It's also possible to remove a table.
+
 ```python
 curr.execute("DROP TABLE members")
 ```
 
 To make changes persistent in the database, we need to commit (queries are called transactions). Finally, we can close the connection.
+
 ```python
 conn.commit()
 conn.close()
@@ -74,6 +79,7 @@ if __name__ == "__main__":
 ## Inserting data
 
 Data can be inserted into a table with the following syntax.
+
 ```python
 curr.execute("""
             INSERT INTO members(firstname, lastname, birthdate) VALUES
@@ -85,6 +91,7 @@ curr.execute("""
 ## Delete data
 
 Data can also be deleted.  
+
 ```python
 curr.execute("""DELETE FROM members 
                 WHERE lastname LIKE 'Clapton'
@@ -109,6 +116,7 @@ def get_connection():
 ## Showing table content
 
 We must use the `fetchall` function to gather all the result in a list of tuples.
+
 ```python
 def display_table(table: str):
     conn = set_connection()
