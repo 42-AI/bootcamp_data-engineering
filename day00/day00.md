@@ -22,7 +22,7 @@ The purpose of the day is at first to create, administrate and normalize a Postg
 
 Data Engineering implies many tasks from organizing the data to putting data systems to productions. Data organization is often a mess in companies and our job is to provide a common, well-organized data source. Historically, the organization of the data is used to analyze the business and determine future business decisions. Those data organizations are called [Data warehouses](https://www.tutorialspoint.com/dwh/index.htm) and are used by business intelligence teams (teams in charge of analyzing the business). This organization of the data follows a [star scheme](https://www.tutorialspoint.com/dwh/dwh_schemas.htm) allowing fast analysis.
 
-Nowadays, we want to answer other cases like providing data to data science teams. To do that we want to provide a common data organization not specific to any project which will be used by anyone who wants it (business intelligence, data scientists, ...). This 
+Nowadays, we want to meet other cases' needs such as providing data to data science teams or other projects. To do so, we want to deliver a common data organization which won't be project-specific but which will be used by anyone willing to (business intelligence, data scientists, ...). This 
 new data organization is called a [Data Lake](https://medium.com/rock-your-data/getting-started-with-data-lake-4bb13643f9). It contains all the company data. The job of data engineering consists of organizing the data :
 - ingestion
 - storage
@@ -43,4 +43,5 @@ To do that SQL is often used to filter, join, select the data. Today you will di
 ### Exercise 10 - Sweet_spot
 ### Exercise 11 - Price_analysis
 ### Exercise 12 - Worldwide
-### Exercise 13 - Sample
+### Exercise 13 - Italian_market
+### Exercise 14 - Sample
