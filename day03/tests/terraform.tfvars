@@ -1,4 +1,8 @@
 region="eu-west-1"
 project_name="day03"
-rds_user="admin"
+
+# RDS
+rds_identifier="wordpress"
+rds_db="wordpress"
+rds_user="wordpress"
 rds_password="12341234"
