@@ -15,23 +15,15 @@ tar -xzf latest.tar.gz
 cd wordpress
 cp wp-config-sample.php wp-config.php
 
-sed -e "s/DB_NAME.*/toto/g" 1.txt > 2.txt
-define( 'DB_NAME', 'database_name_here' );
-define( 'DB_USER', 'username_here' );
-define( 'DB_PASSWORD', 'password_here' );
-define( 'DB_HOST', 'localhost' );
+sed -e "s/'database_name_here'/'${rds_db}'/g" wp-config.php > tmp.txt; mv tmp.txt wp-config.php
+sed -e "s/'username_here'/'${rds_user}'/g" wp-config.php > tmp.txt; mv tmp.txt wp-config.php
+sed -e "s/'password_here'/'${rds_password}'/g" wp-config.php > tmp.txt; mv tmp.txt wp-config.php
+sed -e "s/'localhost'/'${rds_address}'/g" wp-config.php > tmp.txt; mv tmp.txt wp-config.php
 
-# define( 'AUTH_KEY',         'put your unique phrase here' );
-# define( 'SECURE_AUTH_KEY',  'put your unique phrase here' );
-# define( 'LOGGED_IN_KEY',    'put your unique phrase here' );
-# define( 'NONCE_KEY',        'put your unique phrase here' );
-# define( 'AUTH_SALT',        'put your unique phrase here' );
-# define( 'SECURE_AUTH_SALT', 'put your unique phrase here' );
-# define( 'LOGGED_IN_SALT',   'put your unique phrase here' );
-# define( 'NONCE_SALT',       'put your unique phrase here' );
+sed -e "/.*'put your unique phrase here'.*/d" wp-config.php > tmp.txt; mv tmp.txt wp-config.php
+curl https://api.wordpress.org/secret-key/1.1/salt >> wp-config.php
 
-
-# amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2
-# cd /home/ec2-user
-# cp -r wordpress/* /var/www/html/
-# service httpd restart
+amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2
+cd /home/ec2-user
+cp -r /wordpress/* /var/www/html/
+service httpd restart
