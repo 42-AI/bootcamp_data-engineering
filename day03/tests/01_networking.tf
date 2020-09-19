@@ -94,6 +94,17 @@ resource "aws_route_table" "day03_rt" {
   }
 }
 
+resource "aws_route" "route1" {
+  depends_on = [
+    aws_vpc.day03_vpc,
+    aws_subnet.day03_sn_1,
+    aws_route_table.day03_rt
+  ]
+  route_table_id = aws_route_table.day03_rt.id
+  destination_cidr_block = "0.0.0.0/0"
+  gateway_id = aws_internet_gateway.day03_igw.id
+}
+
 resource "aws_route_table_association" "day03_sn1_rt" {
 
   depends_on = [
