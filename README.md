@@ -16,9 +16,9 @@
 - [Curriculum](#curriculum)
   - [Day00 - PostgreSQL](#day00---postgresql)
   - [Day01 - Elasticsearch](#day01---elasticsearch)
-  - [Day02 - Airflow](#day02---airflow)
-  - [Day03 - AWS](#day03---aws)
-  - [Day04 - Spark](#day04---spark)
+  - [Day02 - AWS](#day02---aws)
+  - [Day03 - Spark](#day03---spark)
+  - [Day04 - Airflow](#day04---airflow)
 - [Acknowledgements](#acknowledgements)
   - [Contributors](#contributors)
 
@@ -39,13 +39,14 @@ A prior Python programming experience is required (the Python bootcamp)! Your mi
 **Get acquainted with Elasticsearch** :mag_right:
 > Elasticsearch setup, Data Analysis, Aggregations, Kibana and Monitoring ...
 
-### Day02 - Airflow
+### Day02 - AWS
+**Start exploring the cloud on AWS!** :cloud:
+> Discover AWS, Flask APIs and infrastructure provisioning with Terraform ...
+
+### Day03 - Spark
 **Work in progress**
 
-### Day03 - AWS
-**Work in progress**
-
-### Day04 - Spark
+### Day04 - Airflow
 **Work in progress**
 
 ## Acknowledgements
