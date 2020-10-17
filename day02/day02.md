@@ -1,6 +1,6 @@
 # Bootcamp Data Engineering
 
-# Day03 - Amazon Web Services
+# Day02 - AWS - Flask - Terraform
 
 Today, you will learn how to use Amazon Web Services. It has become the most popular cloud service provider in the world followed by Google Cloud Platform and Microsoft's Azure.
 
@@ -33,3 +33,14 @@ If you never heard about the Cloud before, do not worry! You will learn step by 
 * Your best friends for the day: **[AWS documentation](https://docs.aws.amazon.com/index.html)** and **[Terraform documentation](https://www.terraform.io/docs/index.html)**.
 
 ### Exercise 00 - AWS setup.
+### Exercise 01 - Simple Storage Service (S3).
+### Exercise 02 - Elastic cloud compute (EC2).
+### Exercise 03 - Flask API - List.
+### Exercise 04 - Flask API - Upload.
+### Exercise 05 - Flask API - Download.
+### Exercise 06 - Virtual Private Cloud.
+### Exercise 07 - Subnets.
+### Exercise 08 - IGW - Route table.
+### Exercise 09 - EC2 - Security groups.
+### Exercise 10 - Autoscaling group.
+### Exercise 11 - Load balancer.
