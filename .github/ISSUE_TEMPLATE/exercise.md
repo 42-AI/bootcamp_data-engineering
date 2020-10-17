@@ -21,4 +21,3 @@ print("Code example")
 
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
-
