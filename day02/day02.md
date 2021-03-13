@@ -1,8 +1,8 @@
 # Bootcamp Data Engineering
 
-# Day02 - AWS - Flask - Terraform
+# Day02 - Cloud Storage API
 
-Today, you will learn how to use Amazon Web Services. It has become the most popular cloud service provider in the world followed by Google Cloud Platform and Microsoft's Azure.
+Today, you will learn how to use a Cloud Provider. For all the exercises, I took Amazon Web Services (AWS) as an example but **you are totally free to use the cloud provider you want which is compatible with Terraform** (we advise you to use AWS if you don't have one). AWS has become the most popular cloud service provider in the world followed by Google Cloud Platform and Microsoft Azure.
 
 Amazon Web Services started in 2005 and it now delivers nearly 2000 services. Due to the large number of services and the maturity of AWS, it is a better option to start learning cloud computing.
 
@@ -10,9 +10,7 @@ If you never heard about the Cloud before, do not worry! You will learn step by 
 
 ## Notions of the day
 
-Create an AWS account, set up a billing alarm.
-
-The day will be divided into two parts. In the first one, you will learn to use a tool called Terraform which will allow you to deploy/destruct an AWS infrastructure. In the second part of the day, you will learn to use a software development kit (SDK) which will allow you to use Python in order to interact with AWS.
+The day will be divided into two parts. In the first one, you will learn to use a tool called Terraform which will allow you to deploy/destruct cloud infrastructures. In the second part of the day, you will learn to use a software development kit (SDK) which will allow you to use Python in order to interact with your cloud.
 
 ## General rules
 
@@ -32,15 +30,15 @@ If you never heard about the Cloud before, do not worry! You will learn step by 
 
 * Your best friends for the day: **[AWS documentation](https://docs.aws.amazon.com/index.html)** and **[Terraform documentation](https://www.terraform.io/docs/index.html)**.
 
-### Exercise 00 - AWS setup.
-### Exercise 01 - Simple Storage Service (S3).
-### Exercise 02 - Elastic cloud compute (EC2).
-### Exercise 03 - Flask API - List.
-### Exercise 04 - Flask API - Upload.
-### Exercise 05 - Flask API - Download.
-### Exercise 06 - Virtual Private Cloud.
-### Exercise 07 - Subnets.
-### Exercise 08 - IGW - Route table.
-### Exercise 09 - EC2 - Security groups.
-### Exercise 10 - Autoscaling group.
-### Exercise 11 - Load balancer.
+### Exercise 00 - Setup
+### Exercise 01 - Storage
+### Exercise 02 - Compute
+### Exercise 03 - Flask API - List
+### Exercise 04 - Flask API - Upload
+### Exercise 05 - Flask API - Download
+### Exercise 06 - Network
+### Exercise 07 - Subnets
+### Exercise 08 - IGW - Route table
+### Exercise 09 - Security groups
+### Exercise 10 - Autoscaling
+### Exercise 11 - Load balancer
