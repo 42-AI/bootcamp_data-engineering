@@ -24,8 +24,6 @@ The day will be divided into two parts. In the first one, you will learn to use 
 
 Amazon Web Services started in 2005 and it now delivers nearly 2000 services. Due to the large number of services and the maturity of AWS, it is a better option to start learning cloud computing.
 
-If you never heard about the Cloud before, do not worry! You will learn step by step what the Cloud is and how to use it.
-
 ## Helper 
 
 * Your best friends for the day: **[AWS documentation](https://docs.aws.amazon.com/index.html)** and **[Terraform documentation](https://www.terraform.io/docs/index.html)**.
