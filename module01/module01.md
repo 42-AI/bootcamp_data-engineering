@@ -1,15 +1,13 @@
-# Bootcamp Data Engineering
+# Module01 - Elasticsearch, Logstash, Kibana
 
-# Day01 - Elasticsearch, Logstash, Kibana
-
-Today, you will learn how to use a NoSQL database: Elasticsearch.
+In the module, you will learn how to use a NoSQL database: Elasticsearch.
 Wait... Elasticsearch is a database? Well, not exactly it is more than that. It is defined as a search and analytics engine. But let's keep it simple for now, consider it as a database, we will see the rest later.
 
-## Notions of the day
+## Notions of the module
 
 Create an Elasticsearch cluster, create index and mappings, ingest document, search & aggregate, create visuals with Kibana.  
 
-In the first part of this day (ex00 to ex03) you will learn the basics of Elasticsearch. Then you will apply this to a real dataset.
+In the first part of this module (ex00 to ex03) you will learn the basics of Elasticsearch. Then you will apply this to a real dataset.
 
 ## General rules
 
@@ -31,8 +29,8 @@ If you wanna know how the magic works: **[elastic tinder](https://www.elastic.co
 
 ## Helper 
 
-* Your best friend for the day: **[Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html)**.
-* We recommend using the `/goinfre` directory for this day as you will need ~3Go for the Elasticsearch cluster. But you are free to do as you wish. Note that using `/sgoinfre` won't work.
+* Your best friend for the module: **[Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html)**.
+* We recommend using the `/goinfre` directory for this module as you will need ~3Go for the Elasticsearch cluster. But you are free to do as you wish. Note that using `/sgoinfre` won't work.
 * Keep in mind that the `/goinfre` is a local & temporary directory. So if you change computer you will lose your work, if you log out you might lose your work.
 
 ### Exercise 00 - The setup.
