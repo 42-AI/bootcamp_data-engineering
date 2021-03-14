@@ -2,8 +2,8 @@
 
 |                         |                    |
 | -----------------------:| ------------------ |
-|   Turnin directory :    |  ex07bis           |
-|   Files to turn in :    |  ex07bis-rendu.txt |
+|   Turn-in directory :    |  ex07bis           |
+|   Files to turn in :    |  ex07bis-queries.txt |
 |   Forbidden function :  |  None              |
 |   Remarks :             |                    |
 
