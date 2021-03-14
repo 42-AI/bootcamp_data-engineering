@@ -1,16 +1,14 @@
-# Bootcamp Data Engineering
+# Module02 - Cloud Storage API
 
-# Day02 - Cloud Storage API
-
-Today, you will learn how to use a Cloud Provider. For all the exercises, I took Amazon Web Services (AWS) as an example but **you are totally free to use the cloud provider you want which is compatible with Terraform** (we advise you to use AWS if you don't have one). AWS has become the most popular cloud service provider in the world followed by Google Cloud Platform and Microsoft Azure.
+In the module, you will learn how to use a Cloud Provider. For all the exercises, I took Amazon Web Services (AWS) as an example but **you are totally free to use the cloud provider you want which is compatible with Terraform** (we advise you to use AWS if you don't have one). AWS has become the most popular cloud service provider in the world followed by Google Cloud Platform and Microsoft Azure.
 
 Amazon Web Services started in 2005 and it now delivers nearly 2000 services. Due to the large number of services and the maturity of AWS, it is a better option to start learning cloud computing.
 
 If you never heard about the Cloud before, do not worry! You will learn step by step what the Cloud is and how to use it.
 
-## Notions of the day
+## Notions of the module
 
-The day will be divided into two parts. In the first one, you will learn to use a tool called Terraform which will allow you to deploy/destruct cloud infrastructures. In the second part of the day, you will learn to use a software development kit (SDK) which will allow you to use Python in order to interact with your cloud.
+The module will be divided into two parts. In the first one, you will learn to use a tool called Terraform which will allow you to deploy/destruct cloud infrastructures. In the second part of the module, you will learn to use a software development kit (SDK) which will allow you to use Python in order to interact with your cloud.
 
 ## General rules
 
@@ -26,7 +24,7 @@ Amazon Web Services started in 2005 and it now delivers nearly 2000 services. Du
 
 ## Helper 
 
-* Your best friends for the day: **[AWS documentation](https://docs.aws.amazon.com/index.html)** and **[Terraform documentation](https://www.terraform.io/docs/index.html)**.
+* Your best friends for the module: **[AWS documentation](https://docs.aws.amazon.com/index.html)** and **[Terraform documentation](https://www.terraform.io/docs/index.html)**.
 
 ### Exercise 00 - Setup
 ### Exercise 01 - Storage

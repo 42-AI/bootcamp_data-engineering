@@ -14,11 +14,11 @@
 ### Table of Contents
 
 - [Curriculum](#curriculum)
-  - [Day00 - PostgreSQL](#day00---postgresql)
-  - [Day01 - Elasticsearch](#day01---elasticsearch)
-  - [Day02 - AWS](#day02---aws)
-  - [Day03 - Spark](#day03---spark)
-  - [Day04 - Airflow](#day04---airflow)
+  - [Module00 - PostgreSQL](#Module00---postgresql)
+  - [Module01 - Elasticsearch](#Module01---elasticsearch)
+  - [Module02 - AWS](#Module02---aws)
+  - [Module03 - Hadoop](#Module03---spark)
+  - [Module04 - Spark](#Module04---airflow)
 - [Acknowledgements](#acknowledgements)
   - [Contributors](#contributors)
 
@@ -31,22 +31,22 @@ A prior Python programming experience is required (the Python bootcamp)! Your mi
 
 ## Curriculum
 
-### Day00 - PostgreSQL
+### Module00 - PostgreSQL
 **Let's get started with PostgreSQL!** :link:
 > Filter Data, Normalize Data, Populate tables, Data Analysis ...
 
-### Day01 - Elasticsearch
+### Module01 - Elasticsearch
 **Get acquainted with Elasticsearch** :mag_right:
 > Elasticsearch setup, Data Analysis, Aggregations, Kibana and Monitoring ...
 
-### Day02 - AWS
+### Module02 - AWS
 **Start exploring the cloud on AWS!** :cloud:
 > Discover AWS, Flask APIs and infrastructure provisioning with Terraform ...
 
-### Day03 - Spark
+### Module03 - Hadoop
 **Work in progress**
 
-### Day04 - Airflow
+### Module04 - Spark
 **Work in progress**
 
 ## Acknowledgements

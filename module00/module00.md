@@ -1,17 +1,15 @@
-# Bootcamp Data Engineering
+# Module00 - SQL with PostgreSQL
 
-# Day00 - SQL with PostgreSQL
+In this module, you will learn how to use a SQL database: PostgreSQL.
 
-Today, you will learn how to use a SQL database: PostgreSQL.
+## Notions of the module
 
-## Notions of the day
-
-The purpose of the day is at first to create, administrate and normalize a PostgreSQL Database. Then, we are going to analyse the data and visualize the content of the database. Finally, we will see advanced notions like caching, replication and backups.
+The purpose of the module is at first to create, administrate and normalize a PostgreSQL Database. Then, we are going to analyse the data and visualize the content of the database. Finally, we will see advanced notions like caching, replication and backups.
 
 ## General rules
 
 * The version of Python to use is 3.7, you can check the version of Python with the following command: `python -V`.
-* For this day, you will follow the **[Pep8 standard](https://www.python.org/dev/peps/pep-0008/)**.
+* you will follow the **[Pep8 standard](https://www.python.org/dev/peps/pep-0008/)**.
 * The exercises are ordered from the easiest to the hardest.
 * Your exercises are going to be evaluated by someone else so make sure that variables and functions names are appropriated.
 * Your man is the internet.
@@ -28,7 +26,7 @@ new data organization is called a [Data Lake](https://medium.com/rock-your-data/
 - storage
 - catalog and search engine associated
 
-To do that SQL is often used to filter, join, select the data. Today you will discover an open-source SQL language, PostgreSQL.
+To do that SQL is often used to filter, join, select the data. During the module, you will discover an open-source SQL language, PostgreSQL.
 
 ### Exercise 00 - Setup
 ### Exercise 01 - Clean
