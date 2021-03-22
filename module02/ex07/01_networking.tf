@@ -10,7 +10,7 @@ provider "aws" {
 #   VPC   #
 ###########
 
-resource "aws_vpc" "cloud1_vpc" {
+resource "aws_vpc" "module02_vpc" {
   cidr_block           = var.vpc_cidr
   enable_dns_hostnames = true
 
@@ -24,10 +24,10 @@ resource "aws_vpc" "cloud1_vpc" {
 #   SUBNETS   #
 ###############
 
-resource "aws_subnet" "cloud1_public_subnet" {
-  depends_on = [aws_vpc.cloud1_vpc]
+resource "aws_subnet" "module02_public_subnet" {
+  depends_on = [aws_vpc.module02_vpc]
 
-  vpc_id                  = aws_vpc.cloud1_vpc.id
+  vpc_id                  = aws_vpc.module02_vpc.id
   count                   = length(var.availability_zones)
   availability_zone       = var.availability_zones[count.index]
   cidr_block              = cidrsubnet(var.vpc_cidr, 8, count.index + 1)

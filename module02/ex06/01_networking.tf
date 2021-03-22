@@ -10,7 +10,7 @@ provider "aws" {
 #   VPC   #
 ###########
 
-resource "aws_vpc" "cloud1_vpc" {
+resource "aws_vpc" "module02_vpc" {
   cidr_block           = var.vpc_cidr
   enable_dns_hostnames = true
 
