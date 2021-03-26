@@ -26,8 +26,8 @@ def home():
 def list_bucket():
     response = {
         'status': 200,
-        'message': "Successfully listed files on s3 bucket '{}'.".format(BUCKET),
-        'content': list_files(BUCKET)        
+        'message': "Successfully listed files on s3 bucket '{}'".format(BUCKET),
+        'content': list_files(BUCKET)
     }
     return response
 
@@ -53,7 +53,6 @@ def delete(filename):
 
 @app.route("/download/<filename>", methods=['GET'])
 def download(filename):
-    # response = {}
     if request.method == 'GET':
         presigned_url = download_file(filename, BUCKET)
         print(presigned_url)
