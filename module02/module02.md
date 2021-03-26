@@ -29,12 +29,14 @@ Amazon Web Services started in 2005 and it now delivers nearly 2000 services. Du
 ### Exercise 00 - Setup
 ### Exercise 01 - Storage
 ### Exercise 02 - Compute
-### Exercise 03 - Flask API - List
-### Exercise 04 - Flask API - Upload
-### Exercise 05 - Flask API - Download
-### Exercise 06 - Network
-### Exercise 07 - Subnets
-### Exercise 08 - IGW - Route table
-### Exercise 09 - Security groups
-### Exercise 10 - Autoscaling
-### Exercise 11 - Load balancer
+### Exercise 03 - Flask API - List & Delete
+### Exercise 04 - Flask API - Download & Upload
+### Exercise 05 - Client 
+### Exercise 06 - Services access
+### Exercise 07 - Traffic access
+### Exercise 08 - Cloud API
+### Exercise 09 - Network
+### Exercise 10 - Subnets
+### Exercise 11 - IGW - Route table
+### Exercise 12 - Autoscaling
+### Exercise 13 - Load balancer
