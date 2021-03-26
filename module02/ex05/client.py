@@ -20,9 +20,12 @@ def cli():
 @click.command()
 @click.option('--ip', default='0.0.0.0', help="Ip of the API")
 def ping(ip):
-    r = requests.get("http://{}:5000/".format(ip)).json()
-    if r['status'] == 200:
-        print(r['message'])
+    try:
+        r = requests.get("http://{}:5000/".format(ip)).json()
+        if r['status'] == 200:
+            print(r['message'])
+    except Exception as _:
+        print('Error :: cannot connect to the API!')
 
 @click.command()
 @click.option('--ip', default='0.0.0.0', help="Ip of the API")
