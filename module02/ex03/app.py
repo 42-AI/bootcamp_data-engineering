@@ -5,7 +5,7 @@
 # ============================================================================#
 
 from flask import Flask, request, send_file
-from s3_funcs import list_files
+from s3_funcs import list_files, upload_file, delete_file, download_file
 
 # ============================================================================#
 # ================================ FUNCTIONS =================================#
@@ -26,11 +26,20 @@ def home():
 def list_bucket():
     response = {
         'status': 200,
-        'message': "Successfully listed files on s3 bucket '{}'.".format(BUCKET),
-        'content': list_files(BUCKET)        
+        'message': "Successfully listed files on s3 bucket '{}'".format(BUCKET),
+        'content': list_files(BUCKET)
     }
     return response
 
+@app.route('/delete/<filename>', methods= ['GET', 'POST'])
+def delete(filename):
+    if request.method == 'GET':
+        response = {
+            'status': 200,
+            'message': "Successfully deleted file '{}' on s3 bucket '{}'".format(filename, BUCKET),
+            'content': delete_file(filename, BUCKET)
+        }
+        return (response)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

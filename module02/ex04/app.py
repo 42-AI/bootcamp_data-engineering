@@ -5,7 +5,7 @@
 # ============================================================================#
 
 from flask import Flask, request, send_file
-from s3_funcs import list_files, upload_file, delete_file
+from s3_funcs import list_files, upload_file, delete_file, download_file
 
 # ============================================================================#
 # ================================ FUNCTIONS =================================#
@@ -17,7 +17,7 @@ BUCKET = "module02-12345"
 @app.route('/')
 def home():
     response = {
-        'status_code': 200,
+        'status': 200,
         'message': 'Successfully connected to module02 cloud storage API'
     }
     return response
@@ -26,10 +26,20 @@ def home():
 def list_bucket():
     response = {
         'status': 200,
-        'message': "Successfully listed files on s3 bucket '{}'.".format(BUCKET),
-        'content': list_files(BUCKET)        
+        'message': "Successfully listed files on s3 bucket '{}'".format(BUCKET),
+        'content': list_files(BUCKET)
     }
     return response
+
+@app.route('/delete/<filename>', methods= ['GET', 'POST'])
+def delete(filename):
+    if request.method == 'GET':
+        response = {
+            'status': 200,
+            'message': "Successfully deleted file '{}' on s3 bucket '{}'".format(filename, BUCKET),
+            'content': delete_file(filename, BUCKET)
+        }
+        return (response)
 
 @app.route('/upload/<filename>', methods= ['GET', 'POST'])
 def upload(filename):
@@ -41,15 +51,16 @@ def upload(filename):
         }
         return (response)
 
-@app.route('/delete/<filename>', methods= ['GET', 'POST'])
-def delete(filename):
+@app.route("/download/<filename>", methods=['GET'])
+def download(filename):
     if request.method == 'GET':
+        presigned_url = download_file(filename, BUCKET)
         response = {
             'status': 200,
-            'message': "Successfully deleted file '{}' on s3 bucket '{}'".format(filename, BUCKET),
-            'content': delete_file(filename, BUCKET)
+            'message': "Successfully downloaded file '{}' on s3 bucket '{}'".format(filename, BUCKET),
+            'content': presigned_url
         }
-        return (response)
+        return response
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

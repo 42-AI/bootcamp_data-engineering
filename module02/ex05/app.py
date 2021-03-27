@@ -31,16 +31,6 @@ def list_bucket():
     }
     return response
 
-@app.route('/upload/<filename>', methods= ['GET', 'POST'])
-def upload(filename):
-    if request.method == 'GET':
-        response = {
-            'status': 200,
-            'message': "Successfully uploaded file '{}' on s3 bucket '{}'".format(filename, BUCKET),
-            'content': upload_file(filename, BUCKET)
-        }
-        return (response)
-
 @app.route('/delete/<filename>', methods= ['GET', 'POST'])
 def delete(filename):
     if request.method == 'GET':
@@ -51,11 +41,20 @@ def delete(filename):
         }
         return (response)
 
+@app.route('/upload/<filename>', methods= ['GET', 'POST'])
+def upload(filename):
+    if request.method == 'GET':
+        response = {
+            'status': 200,
+            'message': "Successfully uploaded file '{}' on s3 bucket '{}'".format(filename, BUCKET),
+            'content': upload_file(filename, BUCKET)
+        }
+        return (response)
+
 @app.route("/download/<filename>", methods=['GET'])
 def download(filename):
     if request.method == 'GET':
         presigned_url = download_file(filename, BUCKET)
-        print(presigned_url)
         response = {
             'status': 200,
             'message': "Successfully downloaded file '{}' on s3 bucket '{}'".format(filename, BUCKET),
