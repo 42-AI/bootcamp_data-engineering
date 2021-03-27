@@ -5,7 +5,7 @@
 # ============================================================================#
 
 from flask import Flask, request, send_file
-from s3_funcs import list_files, upload_file, delete_file, download_file
+from s3_funcs import list_files, delete_file, upload_file, download_file
 
 # ============================================================================#
 # ================================ FUNCTIONS =================================#
