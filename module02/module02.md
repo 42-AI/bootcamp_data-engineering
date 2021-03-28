@@ -66,11 +66,10 @@ The `edge locations` you see on the picture are endpoints for AWS which are used
 ### Exercise 03 - Flask API - List & Delete
 ### Exercise 04 - Flask API - Download & Upload
 ### Exercise 05 - Client 
-### Exercise 06 - Services access
-### Exercise 07 - Traffic access
+### Exercise 06 - IAM role
+### Exercise 07 - Security group
 ### Exercise 08 - Cloud API
 ### Exercise 09 - Network
-### Exercise 10 - Subnets
-### Exercise 11 - IGW - Route table
+### Exercise 10 - IGW - Route table
 ### Exercise 12 - Autoscaling
 ### Exercise 13 - Load balancer
